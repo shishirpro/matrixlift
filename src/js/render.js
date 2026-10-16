@@ -64,8 +64,8 @@ window.R = (() => {
 
     newsCard: (n) => `
       <a href="article.html?a=${n.slug}" class="group flex flex-col rounded-[26px] bg-white p-2.5 ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,27,51,.4)]" data-reveal>
-        <div class="img-zoom relative aspect-[16/10] overflow-hidden rounded-[18px] bg-mist">
-          <img src="${n.img}" alt="" class="size-full object-cover" loading="lazy">
+        <div class="img-zoom relative aspect-[16/10] overflow-hidden rounded-[18px] ${n.fit === "portrait" ? "bg-gradient-to-br from-mint via-sky to-sand" : "bg-mist"}">
+          ${n.fit === "portrait" ? `<div class="bg-floors absolute inset-0 opacity-50"></div><img src="${n.img}" alt="" class="relative mx-auto h-full w-auto object-contain object-bottom mix-blend-multiply" loading="lazy">` : `<img src="${n.img}" alt="" class="size-full object-cover" loading="lazy">`}
           <span class="chip absolute left-3 top-3">${n.cat}</span>
         </div>
         <div class="flex flex-1 flex-col px-3 pb-3 pt-5">

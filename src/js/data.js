@@ -230,7 +230,7 @@ ML.clients = [
 ML.news = [
   {
     slug: "message-from-ceo", title: "More than a provider of vertical transportation", cat: "Leadership", date: "2026",
-    img: "img/profile/md-emdad.jpg", author: "Emdad Ur Rahman", role: "Managing Director & CEO",
+    img: "img/profile/md-emdad-news.jpg", fit: "portrait", author: "Emdad Ur Rahman", role: "Managing Director & CEO",
     excerpt: "Our MD & CEO on bridging the gap between affordability and quality, and on delivering long-term value through service and engineering.",
   },
   {

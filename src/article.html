@@ -38,7 +38,7 @@
               <p class="fade-up mt-6 text-[14px] text-ink-500" style="--d:.5s">By <span class="font-semibold text-ink-900">${a.author}</span>, ${a.role}</p>
             </div>
           </header>
-          <div class="container-x relative -mt-28 max-w-4xl"><div class="fade-up rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8" style="--d:.5s"><img src="${a.img}" alt="" class="aspect-[16/9] w-full rounded-[24px] object-cover"></div></div>
+          <div class="container-x relative -mt-28 max-w-4xl"><div class="fade-up rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8" style="--d:.5s">${a.fit === "portrait" ? `<div class="relative aspect-[16/9] overflow-hidden rounded-[24px] bg-gradient-to-br from-mint via-sky to-sand"><div class="bg-floors absolute inset-0 opacity-50"></div><img src="${a.img}" alt="" class="absolute inset-x-0 bottom-0 mx-auto h-[94%] w-auto object-contain mix-blend-multiply"></div>` : `<img src="${a.img}" alt="" class="aspect-[16/9] w-full rounded-[24px] object-cover">`}</div></div>
           <div class="prose-lift container-x max-w-2xl py-16 text-[17px]" data-reveal>${bodies[a.slug] || ""}
             <p class="mt-10 rounded-xl bg-amber-50 p-4 !text-xs !text-amber-800">Prototype copy. Replace with client-approved text and verified publication date.</p>
           </div>
