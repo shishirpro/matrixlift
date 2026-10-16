@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — Lifts, Escalators, Moving Walks & Hoists | MATRIX Lift</title>
+  <meta name="description" content="Browse 16 MATRIX products: passenger, home, panoramic, hospital bed, cargo and car lifts, lifting platforms, 2 & 4 post car parks, scissor platforms and lifts, escalators, moving walks, construction hoists and lifts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="products">
+  <div id="header-slot"></div>
+  <main>
+    <div id="hero"></div>
+    <section class="relative overflow-hidden bg-paper py-16 lg:py-24">
+      <div class="bg-cables absolute inset-0 mask-fade-y opacity-60"></div>
+      <div class="container-x relative">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center" data-reveal>
+          <div id="filters" class="flex flex-wrap gap-2" role="group" aria-label="Filter products"></div>
+          <p class="flex items-center gap-2 text-[14.5px] text-ink-500"><span id="count" class="led rounded-lg bg-ink-900 px-2 py-1 font-mono text-xs">16</span> products</p>
+        </div>
+        <div id="grid" class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4" data-stagger></div>
+      </div>
+    </section>
+
+    <aside class="fixed bottom-5 right-5 z-40" data-reveal>
+      <a href="contact.html#quote" class="btn btn-primary shadow-2xl">Request a Quote</a>
+    </aside>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Products", title: "Sixteen ways to move <em>people</em> and goods.", text: "Lifts, car parks, platforms, escalators, moving walks and construction hoists — specified to your building and backed by MATRIX service.", crumbs: [{ label: "Products" }], img: "img/escalator-1600.jpg" });
+    const cats = ["All", ...new Set(ML.products.map((p) => p.cat))];
+    const grid = document.getElementById("grid");
+    document.getElementById("filters").innerHTML = cats.map((c, i) => `<button type="button" class="filter-btn rounded-full bg-white px-4 py-2 text-[14px] font-semibold text-ink-700 ring-1 ring-ink-900/10 transition hover:ring-ink-900/40" aria-pressed="${i === 0}" data-c="${c}">${c}</button>`).join("");
+    const draw = (cat) => {
+      const list = ML.products.filter((p) => cat === "All" || p.cat === cat);
+      grid.innerHTML = list.map(R.productCard).join("");
+      document.getElementById("count").textContent = list.length;
+      ML.watch?.(grid);
+    };
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      document.querySelectorAll(".filter-btn").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      draw(b.dataset.c);
+    });
+    draw("All");
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

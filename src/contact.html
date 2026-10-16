@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Request a Quote — MATRIX Lift</title>
+  <meta name="description" content="Contact MATRIX Lift, DOHS Mirpur, Dhaka. Request a quote for lifts, escalators, moving walks, parking systems and maintenance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="contact">
+  <div id="header-slot"></div>
+  <main>
+    <div id="hero"></div>
+    <section id="quote" class="relative scroll-mt-24 overflow-hidden bg-mint py-20 lg:py-28">
+      <div class="bg-dots absolute inset-0 mask-radial opacity-70"></div>
+      <div class="container-x relative grid gap-10 lg:grid-cols-12">
+        <div class="card p-6 sm:p-10 lg:col-span-7" data-reveal="left">
+          <h2 class="font-display text-[2rem] font-semibold tracking-tight">Request a <em>quote</em></h2>
+          <p class="mt-2 text-ink-500">Fields marked * are required. We typically reply within business hours.</p>
+          <div id="form" class="mt-8"></div>
+        </div>
+        <aside class="space-y-4 lg:col-span-5" data-reveal="right">
+          <div id="contact-cards" class="grid gap-3 sm:grid-cols-2"></div>
+          <div class="relative overflow-hidden rounded-[26px] bg-white p-8 ring-1 ring-ink-900/7">
+            <div class="bg-blueprint absolute inset-0 opacity-70"></div>
+            <div class="relative">
+              <p class="eyebrow">Office location</p>
+              <p class="mt-4 font-display text-[26px] font-semibold tracking-tight">DOHS Mirpur, <em>Dhaka</em></p>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-ink-600">DDL Sranti Villa, Flat # A/1 (West), House # 1031/33, Road # 9, Avenue # 9, DOHS Mirpur, Dhaka 1216</p>
+              <div class="mt-6 overflow-hidden rounded-2xl ring-1 ring-ink-900/10"><iframe title="MATRIX Lift office map" src="https://www.google.com/maps?q=DOHS+Mirpur+Avenue+9+Road+9+Dhaka+1216&output=embed" class="aspect-[16/10] w-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+          </div>
+          <p class="text-xs leading-relaxed text-ink-500">Your details are used only to respond to your enquiry.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    const { contact, icon } = ML;
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Contact", title: "Let’s talk about your <em>building.</em>", text: "New project, maintenance or modernization — send us the details and our team will get back to you.", crumbs: [{ label: "Contact" }] });
+    document.getElementById("form").innerHTML = R.quoteForm(new URLSearchParams(location.search).get("product") || "");
+    const cards = [
+      ["phone", "Hotline", contact.phone, contact.phoneHref],
+      ["phone", "Mobile", contact.phone2, contact.phone2Href],
+      ["mail", "Email", contact.email, "mailto:" + contact.email],
+      ["mail", "Alternate email", contact.email2, "mailto:" + contact.email2],
+    ];
+    R.fill("contact-cards", cards.map(([ic, k, v, h], i) => `
+      <${h ? `a href="${h}"` : "div"} class="card group flex items-center gap-4 p-4 ${i > 1 ? "sm:col-span-2" : ""} ${h ? "transition hover:-translate-y-0.5 hover:border-brand-400" : ""}">
+        <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-mint text-brand-600 transition group-hover:bg-brand-400 group-hover:text-ink-950">${icon(ic)}</span>
+        <span class="min-w-0"><span class="block text-xs uppercase tracking-wider text-ink-500">${k}</span><span class="mt-0.5 block break-words text-[14.5px] font-semibold [overflow-wrap:anywhere]">${v}</span></span>
+      </${h ? "a" : "div"}>`));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

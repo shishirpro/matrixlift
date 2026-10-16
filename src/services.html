@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Planning to Modernization | MATRIX Lift</title>
+  <meta name="description" content="MATRIX lift services: planning, supply, installation, 24/7 maintenance, spare parts and modernization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="services">
+  <div id="header-slot"></div>
+  <main>
+    <div id="hero"></div>
+
+    <!-- Process flow -->
+    <section class="relative overflow-hidden bg-white py-24 lg:py-32">
+      <div class="bg-blueprint absolute inset-0 mask-radial opacity-60"></div>
+      <div class="container-x relative">
+        <div class="max-w-2xl" data-reveal>
+          <p class="eyebrow">How we work</p>
+          <h2 class="h-section mt-5">One partner, <em>start</em> to finish.</h2>
+        </div>
+        <div class="relative mt-16" data-reveal>
+          <svg class="absolute left-0 right-0 top-7 hidden h-2 w-full lg:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="1" x2="100" y2="1" stroke="#d6dde6" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            <line x1="0" y1="1" x2="100" y2="1" stroke="#14a865" stroke-width="2" vector-effect="non-scaling-stroke" pathLength="1" class="line-draw"/>
+          </svg>
+          <ol id="flow" class="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-6" data-stagger></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detail -->
+    <section class="relative overflow-hidden bg-mint py-24 lg:py-32">
+      <div class="bg-dots absolute inset-0 mask-radial opacity-70"></div>
+      <div id="detail" class="container-x relative space-y-5"></div>
+    </section>
+
+    <!-- Existing owners -->
+    <section class="relative overflow-hidden bg-paper py-24">
+      <div class="bg-floors absolute inset-0 opacity-60 mask-fade-y"></div>
+      <div class="container-x relative grid gap-5 lg:grid-cols-2" data-stagger>
+        <a href="contact.html?product=maintenance#quote" class="group relative overflow-hidden rounded-[30px] bg-ink-900 p-10 text-white" data-reveal>
+          <img src="img/1653726230.jpg" alt="" class="absolute inset-0 size-full object-cover opacity-25 transition duration-700 group-hover:scale-105 group-hover:opacity-35">
+          <div class="absolute inset-0 bg-gradient-to-r from-ink-900 via-ink-900/80 to-transparent"></div>
+          <div class="relative"><p class="eyebrow-dark">Existing lift owners</p><h3 class="mt-5 font-display text-[2rem] font-semibold tracking-tight">Need a maintenance plan?</h3><p class="mt-3 max-w-md text-[15px] leading-relaxed text-white/80">Preventive maintenance for MATRIX and third-party lifts — keep them safe and compliant.</p><span class="btn btn-primary mt-8">Enquire about maintenance</span></div>
+        </a>
+        <a href="contact.html?product=modernization#quote" class="group relative overflow-hidden rounded-[30px] bg-brand-600 p-10 text-white" data-reveal>
+          <div class="absolute inset-0 opacity-25" style="background-image:repeating-linear-gradient(180deg,transparent 0 87px,rgb(255 255 255/.35) 87px 88px)"></div>
+          
+          <div class="relative"><p class="inline-flex rounded-full bg-white/15 px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.18em] text-white">Ageing equipment</p><h3 class="mt-5 font-display text-[2rem] font-semibold tracking-tight">Modernize your lift.</h3><p class="mt-3 max-w-md text-[15px] leading-relaxed text-white/85">Upgrade controllers, drives, doors, fixtures and cabin interiors without full replacement.</p><span class="btn mt-8 bg-white text-ink-900 hover:bg-brand-50">Discuss modernization</span></div>
+        </a>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    const { services, icon } = ML;
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Services", title: "From traffic calculation to <em>24/7</em> maintenance.", text: "We have expertise in six services that cover the full life of your lift — so specification, installation and maintenance never fall between contractors.", crumbs: [{ label: "Services" }], img: "img/about_img.png" });
+    R.fill("flow", services.map((s, i) => `
+      <li class="relative" data-reveal>
+        <span class="relative z-10 grid size-14 place-items-center rounded-2xl bg-white text-brand-600 shadow-[0_10px_24px_-14px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8">${icon(s.icon, "size-6")}</span>
+        <p class="mt-5 font-mono text-[11px] tracking-wider text-ink-400">STEP 0${i + 1}</p>
+        <h3 class="mt-1 font-display text-[18px] font-semibold tracking-tight">${s.name}</h3>
+      </li>`));
+    const detail = {
+      planning: { deliver: ["Traffic calculation", "Mode, number, capacity & speed of equipment", "Shaft layout & brand recommendation"], you: "Architectural drawings and building use details." },
+      supply: { deliver: ["Equipment from VOLKSLIFT, MATRIX LIFT or ELEVATES", "Faster, on-time delivery", "Inventory control after delivery"], you: "Confirmed specification and site readiness timeline." },
+      installation: { deliver: ["Installation as per industry norms", "Quality control by qualified engineers & technicians", "Testing & handover"], you: "Completed shaft, power supply and site access." },
+      maintenance: { deliver: ["24/7 service, 365 days a year", "Dedicated, skilled maintenance team", "Preventive visits & breakdown support"], you: "Access to equipment and named building contact." },
+      "spare-parts": { deliver: ["Spare parts for all equipment we supply", "Widely used core components", "Replacement & fitting"], you: "Equipment model and serial information." },
+      modernization: { deliver: ["Upgrade old lifts and escalators", "Latest state-of-the-art kits & components", "Condition assessment"], you: "Existing equipment details and access for survey." },
+    };
+    R.fill("detail", services.map((s, i) => `
+      <article id="${s.key}" class="card scroll-mt-32 grid gap-8 p-8 lg:grid-cols-12 lg:p-10" data-reveal>
+        <div class="lg:col-span-4">
+          <p class="led inline-block rounded-lg bg-ink-900 px-2.5 py-1 font-mono text-xs">0${i + 1} / 06</p>
+          <h2 class="mt-4 font-display text-[2rem] font-semibold tracking-tight">${s.name}</h2>
+          <p class="mt-3 text-[15px] leading-[1.7] text-ink-500">${s.text}</p>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink-500">Typical deliverables</p>
+          <ul class="mt-4 space-y-3">${detail[s.key].deliver.map((d) => `<li class="flex gap-3 text-[14.5px] text-ink-700"><span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand-500"></span>${d}</li>`).join("")}</ul>
+        </div>
+        <div class="rounded-2xl bg-sand p-5 lg:col-span-3">
+          <p class="text-xs font-semibold uppercase tracking-wider text-ink-500">Your part</p>
+          <p class="mt-3 text-[14px] leading-relaxed text-ink-700">${detail[s.key].you}</p>
+        </div>
+      </article>`));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

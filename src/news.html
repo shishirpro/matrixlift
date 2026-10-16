@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Insights — MATRIX Lift</title>
+  <meta name="description" content="Company updates, technical insights and announcements from MATRIX Lift.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="news">
+  <div id="header-slot"></div>
+  <main>
+    <div id="hero"></div>
+    <section class="relative overflow-hidden bg-sky py-16 lg:py-24">
+      <div class="bg-blueprint absolute inset-0 mask-fade-y opacity-60"></div>
+      <div class="container-x relative">
+        <a id="featured" class="group grid gap-2 overflow-hidden rounded-[30px] bg-white p-2.5 ring-1 ring-ink-900/7 shadow-[0_30px_60px_-36px_rgba(12,27,51,.45)] lg:grid-cols-2" data-reveal></a>
+        <div id="list" class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-stagger></div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "News & insights", title: "Updates from <em>MATRIX.</em>", text: "Company news, leadership perspectives and practical guidance on choosing and maintaining lifts.", crumbs: [{ label: "News" }] });
+    const [f, ...rest] = ML.news;
+    const fe = document.getElementById("featured");
+    fe.href = `article.html?a=${f.slug}`;
+    fe.innerHTML = `
+      <div class="img-zoom aspect-[16/10] overflow-hidden rounded-[22px] lg:aspect-auto"><img src="${f.img}" alt="" class="size-full object-cover"></div>
+      <div class="flex flex-col justify-center p-8 lg:p-14">
+        <div class="flex flex-wrap items-center gap-2"><span class="eyebrow">Featured</span><span class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">${f.cat} · ${f.date}</span></div>
+        <h2 class="mt-5 font-display text-[2rem] font-semibold leading-[1.1] tracking-tight text-ink-900 transition group-hover:text-brand-600 sm:text-[2.5rem]">${f.title}</h2>
+        <p class="lead mt-4">${f.excerpt}</p>
+        <span class="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-ink-900">Read article ${ML.icon("arrow", "size-4 transition group-hover:translate-x-1")}</span>
+      </div>`;
+    R.fill("list", rest.map(R.newsCard));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

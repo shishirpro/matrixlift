@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article — MATRIX Lift</title>
+  <meta name="description" content="News and insights from MATRIX Lift.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="news">
+  <div id="header-slot"></div>
+  <main id="main"></main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    (() => {
+      const slug = new URLSearchParams(location.search).get("a");
+      const a = ML.news.find((n) => n.slug === slug) || ML.news[0];
+      document.title = `${a.title} — MATRIX Lift`;
+      const bodies = {
+        "message-from-ceo": `<p class="!text-xl !text-ink-900">MATRIX is more than just a provider of vertical transportation solutions — we are focused on crafting experiences in the way people interact with their environment.</p><p>We take immense pride in our growing presence in Bangladesh’s infrastructure development, and we are committed to upholding high standards.</p><h2>Affordability meets quality</h2><p>Our management, with decades of experience in the lift industry, is focused on redefining vertical mobility by offering innovative, cost-effective and customised solutions — so that businesses, residential complexes and institutions have access to world-class lift systems tailored to their needs.</p><h2>Long-term value</h2><p>We have optimised our supply chain to provide cutting-edge technology at competitive prices. Our focus is not just selling lifts, but delivering long-term value through exceptional service, robust engineering and customer-centric solutions.</p><p>We invite our valued patrons and customers to avail our services and feel the difference.</p>`,
+        "volkslift-factory": `<p class="!text-xl !text-ink-900">VOLKSLIFT is manufactured at a 100,000 m² campus in Xitai Science &amp; Technology Industrial Park, Huzhou, Zhejiang.</p><figure class="my-8 overflow-hidden rounded-2xl"><img src="img/volkslift_banner.png" alt="VOLKSLIFT campus aerial view"></figure><h2>Built and tested at scale</h2><ul><li>108 m test tower with 6 shafts and a 7 m/s high-speed elevator</li><li>About 1,000 workers producing over 30,000 units a year</li><li>European-sourced robotic production line under German management &amp; supervision</li></ul><h2>Certified</h2><p>European CE, TÜV type approval, ISO 9001, ISO 18001, AAA credit and A-class energy approval.</p>`,
+        "cabin-design": `<p class="!text-xl !text-ink-900">A lift cabin is often the first interior a visitor experiences. Choosing the right finish is both an aesthetic and a practical decision.</p><h2>Match the building</h2><p>Brushed stainless suits offices and high-traffic buildings; champagne gold and mirror finishes suit hotels and premium residences; wood-tone and stone panels bring warmth to apartments.</p><figure class="my-8 overflow-hidden rounded-2xl"><img src="img/1742889680.webp" alt="Cabin decoration references"></figure><h2>Think about durability</h2><ul><li>Choose scratch-resistant finishes for service and goods use</li><li>Consider lighting and ceiling design together with wall panels</li><li>Pick fixtures and displays that match the cabin style</li></ul>`,
+      };
+      document.getElementById("main").innerHTML = `
+        <article>
+          <header class="relative overflow-hidden bg-paper pb-40 pt-16">
+            <div class="bg-blueprint absolute inset-0 mask-radial"></div>
+            <div class="blob -left-20 top-0 size-80 bg-brand-200/50"></div>
+            <div class="container-x relative max-w-3xl">
+              <a href="news.html" class="fade-up inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[14px] font-semibold ring-1 ring-ink-900/8 hover:ring-ink-900/30" style="--d:.2s">← Back to news</a>
+              <div class="fade-up mt-8 flex flex-wrap items-center gap-3" style="--d:.3s"><span class="eyebrow">${a.cat}</span><time class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">${a.date}</time></div>
+              <h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.05] sm:text-[3.4rem]" style="--d:.4s">${a.title}</h1>
+              <p class="fade-up mt-6 text-[14px] text-ink-500" style="--d:.5s">By <span class="font-semibold text-ink-900">${a.author}</span>, ${a.role}</p>
+            </div>
+          </header>
+          <div class="container-x relative -mt-28 max-w-4xl"><div class="fade-up rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8" style="--d:.5s"><img src="${a.img}" alt="" class="aspect-[16/9] w-full rounded-[24px] object-cover"></div></div>
+          <div class="prose-lift container-x max-w-2xl py-16 text-[17px]" data-reveal>${bodies[a.slug] || ""}
+            <p class="mt-10 rounded-xl bg-amber-50 p-4 !text-xs !text-amber-800">Prototype copy. Replace with client-approved text and verified publication date.</p>
+          </div>
+          <div class="container-x max-w-2xl pb-24">
+            <div class="relative overflow-hidden rounded-[26px] bg-mint p-8 sm:flex sm:items-center sm:justify-between">
+              <div class="bg-dots absolute inset-0 opacity-50"></div>
+              <div class="relative"><p class="font-display text-[22px] font-semibold tracking-tight">Want more <em>information?</em></p><p class="mt-1 text-[14px] text-ink-500">Our team can help with products, brands and services.</p></div>
+              <a href="contact.html#quote" class="btn btn-dark relative mt-5 sm:mt-0">Request information</a>
+            </div>
+          </div>
+        </article>
+        <section class="relative overflow-hidden bg-sky py-20"><div class="bg-blueprint absolute inset-0 mask-fade-y opacity-60"></div><div class="container-x relative"><h2 class="font-display text-[2rem] font-semibold tracking-tight">More from <em>MATRIX</em></h2><div class="mt-10 grid gap-5 md:grid-cols-2" data-stagger>${ML.news.filter((n) => n !== a).map(R.newsCard).join("")}</div></div></section>`;
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

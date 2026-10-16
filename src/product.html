@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — MATRIX Lift</title>
+  <meta name="description" content="MATRIX Lift product details, specifications and enquiry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="products">
+  <div id="header-slot"></div>
+  <main id="main"></main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    (() => {
+      const { products, icon, contact } = ML;
+      const slug = new URLSearchParams(location.search).get("p") || "passenger-lift";
+      const p = products.find((x) => x.slug === slug) || products[0];
+      const idx = products.indexOf(p);
+      document.title = `${p.name} — MATRIX Lift`;
+      document.querySelector('meta[name=description]').content = `${p.name}: ${p.line} Specifications, options and quote from MATRIX Lift, Bangladesh.`;
+
+      const specRows = p.specs
+        ? ML.passengerSpecs.map((s) => `<tr class="transition hover:bg-mint"><td class="p-4 font-semibold">${s.kg} kg</td><td class="p-4">${s.pers}</td><td class="p-4">${s.speed}</td><td class="p-4">${s.car}</td><td class="p-4">${s.door}</td><td class="p-4">${s.floors}</td></tr>`).join("")
+        : "";
+      const specs = p.specs ? `
+        <div class="overflow-x-auto rounded-[26px] bg-white ring-1 ring-ink-900/7 shadow-[0_24px_50px_-34px_rgba(12,27,51,.4)]">
+          <table class="w-full min-w-[640px] text-left text-sm">
+            <thead class="bg-ink-900 text-white"><tr><th class="p-4 font-medium">Capacity</th><th class="p-4 font-medium">Persons</th><th class="p-4 font-medium">Speed (m/s)</th><th class="p-4 font-medium">Car W × D (mm)</th><th class="p-4 font-medium">Door W × H (mm)</th><th class="p-4 font-medium">Max floors</th></tr></thead>
+            <tbody class="divide-y divide-ink-900/8">${specRows}</tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs text-ink-500">Machine Room on Top (MR). Source: Elevator Planning Guide.</p>
+        <h3 class="mb-5 mt-12 font-display text-[22px] font-semibold tracking-tight">Machine Room Less (MRL)</h3>
+        <div class="overflow-x-auto rounded-[26px] bg-white ring-1 ring-ink-900/7 shadow-[0_24px_50px_-34px_rgba(12,27,51,.4)]">
+          <table class="w-full min-w-[720px] text-left text-sm">
+            <thead class="bg-ink-900 text-white"><tr><th class="p-4 font-medium">Capacity</th><th class="p-4 font-medium">Persons</th><th class="p-4 font-medium">Speed (m/s)</th><th class="p-4 font-medium">Car W × D (mm)</th><th class="p-4 font-medium">Door W × H (mm)</th><th class="p-4 font-medium">Shaft W × D (mm)</th><th class="p-4 font-medium">Max floors</th></tr></thead>
+            <tbody class="divide-y divide-ink-900/8">${ML.mrlSpecs.map((s) => `<tr class="transition hover:bg-mint"><td class="p-4 font-semibold">${s.kg} kg</td><td class="p-4">${s.pers}</td><td class="p-4">${s.speed}</td><td class="p-4">${s.car}</td><td class="p-4">${s.door}</td><td class="p-4">${s.shaft}</td><td class="p-4">${s.floors}</td></tr>`).join("")}</tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs text-ink-500">Machine Room Less (MRL). <button type="button" id="guide" class="font-semibold text-ink-900 underline">View planning guide</button></p>`
+        : `<div class="grid gap-px overflow-hidden rounded-[26px] bg-ink-900/8 ring-1 ring-ink-900/7 sm:grid-cols-2">
+            ${["Capacity", "Speed", "Travel / stops", "Dimensions", "Finishes", "Power supply", "Standards"].map((k) => `<div class="flex justify-between gap-4 bg-white p-5 text-sm"><span class="text-ink-500">${k}</span><span class="font-medium text-amber-600">Awaiting approved data</span></div>`).join("")}
+          </div>`;
+
+      const faqs = [
+        [`How long does a ${p.name.toLowerCase()} installation take?`, "Timelines depend on building readiness, shaft construction and specification. Our team will provide a schedule with your quotation."],
+        ["Which brand should I choose?", "We offer three series — Apex (VOLKSLIFT) for the top-notch segment, Prime (MATRIX LIFT) for mid-range and Value (ELEVATES) for budget projects. We recommend the right fit after reviewing your building."],
+        ["Do you provide maintenance after installation?", "Yes — a dedicated, skilled team provides maintenance services 24/7, 365 days a year, with spare-parts support for all equipment we supply."],
+      ];
+
+      const related = products.filter((x) => x.cat === p.cat && x !== p).concat(products.filter((x) => x.cat !== p.cat)).slice(0, 4);
+
+      document.getElementById("main").innerHTML = `
+        <section class="relative overflow-hidden border-b border-ink-900/6 bg-paper">
+          <div class="bg-blueprint absolute inset-0 mask-radial"></div>
+          <div class="blob -left-24 top-10 size-80 bg-brand-200/50"></div>
+          <div class="blob right-0 -top-20 size-96 bg-sky"></div>
+          <div class="container-x relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
+            <div>
+              <nav aria-label="Breadcrumb" class="fade-up flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400" style="--d:.15s"><a href="index.html" class="hover:text-ink-900">Home</a> <span class="text-ink-300">/</span> <a href="products.html" class="hover:text-ink-900">Products</a> <span class="text-ink-300">/</span> <span class="text-brand-600">${p.name}</span></nav>
+              <div class="fade-up mt-7 flex items-center gap-3" style="--d:.25s"><span class="eyebrow">${p.cat}</span><span class="led rounded-lg bg-ink-900 px-2.5 py-1 font-mono text-xs">${String(idx + 1).padStart(2, "0")} / ${products.length}</span></div>
+              <h1 class="h-display fade-up mt-5 text-[2.8rem] leading-[1] sm:text-[4rem]" style="--d:.35s">${p.name.replace(/ (\S+)$/, " <em>$1</em>")}</h1>
+              <p class="lead fade-up mt-6 max-w-lg" style="--d:.5s">${p.line}</p>
+              <div class="fade-up mt-9 flex flex-wrap gap-3" style="--d:.6s">
+                <a href="#enquire" class="btn btn-primary">Request a quote</a>
+                <a href="${contact.phoneHref}" class="btn btn-outline">${icon("phone", "size-4")} ${contact.phone}</a>
+              </div>
+            </div>
+            <div class="fade-up relative" style="--d:.45s">
+              <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-[32px] border-2 border-dashed border-brand-400/50 bg-mint/60" aria-hidden="true"></div>
+              <button type="button" id="hero-img" class="group relative block w-full rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8 transition duration-500 hover:-translate-y-1" aria-label="Enlarge image">
+                <span class="img-zoom block overflow-hidden rounded-[24px]"><img src="${p.img}" alt="${p.name}" class="aspect-[4/3] w-full object-cover"></span>
+              </button>
+              <div class="floaty absolute -bottom-5 -left-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-ink-900/8">
+                <p class="font-mono text-[10px] uppercase tracking-widest text-ink-400">Best for</p>
+                <p class="font-display text-[15px] font-semibold">${p.uses[0]}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="sticky top-18 z-30 border-b border-ink-900/7 bg-white/85 backdrop-blur-xl" aria-label="On this page">
+          <div class="container-x flex gap-2 overflow-x-auto py-3 text-[14px] font-semibold text-ink-500">
+            ${["Overview", "Specifications", "Options", "FAQ", "Enquire"].map((x) => `<a href="#${x.toLowerCase()}" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-paper hover:text-ink-900">${x}</a>`).join("")}
+          </div>
+        </nav>
+
+        <section id="overview" class="relative scroll-mt-32 overflow-hidden bg-white py-20 lg:py-28">
+          <div class="bg-diagonal absolute inset-y-0 right-0 w-1/3 mask-fade-y opacity-60"></div>
+          <div class="container-x relative grid gap-14 lg:grid-cols-12">
+            <div class="lg:col-span-7" data-reveal>
+              <p class="eyebrow">Overview</p>
+              <h2 class="h-section mt-5">Where it <em>fits.</em></h2>
+              <p class="lead mt-6">${p.overview}</p>
+              <div class="mt-10 grid gap-3 sm:grid-cols-2">
+                ${p.uses.map((u) => `<div class="flex items-center gap-3 rounded-2xl bg-paper px-5 py-4 text-[14px] font-semibold ring-1 ring-ink-900/6"><span class="size-2 rounded-full bg-brand-500"></span>${u}</div>`).join("")}
+              </div>
+            </div>
+            <div class="lg:col-span-5" data-reveal="right">
+              <div class="relative overflow-hidden rounded-[28px] bg-mint p-8 ring-1 ring-brand-500/15">
+                <div class="bg-dots absolute inset-0 opacity-50"></div>
+                <p class="eyebrow relative">Key benefits</p>
+                <ul class="relative mt-6 space-y-4">
+                  ${p.benefits.map((b) => `<li class="flex gap-3"><span class="grid size-6 shrink-0 place-items-center rounded-full bg-brand-600 text-white"><svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg></span><span class="text-[15px] font-medium text-ink-800">${b}</span></li>`).join("")}
+                </ul>
+                <p class="relative mt-8 text-xs text-ink-400">Benefits to be verified against approved technical data.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="specifications" class="relative scroll-mt-32 overflow-hidden bg-sky py-20 lg:py-28">
+          <div class="bg-blueprint absolute inset-0 mask-fade-y opacity-70"></div>
+          <div class="container-x relative" data-reveal>
+            <p class="eyebrow">Specifications</p>
+            <h2 class="h-section mb-10 mt-5">Technical <em>data.</em></h2>
+            ${specs}
+          </div>
+        </section>
+
+        <section id="options" class="relative scroll-mt-32 overflow-hidden bg-white py-20 lg:py-28">
+          <div class="container-x relative grid gap-6 md:grid-cols-3" data-stagger>
+            <div class="card p-8" data-reveal><span class="grid size-12 place-items-center rounded-2xl bg-mint text-brand-600">${icon("excellence")}</span><h3 class="mt-5 font-display text-[20px] font-semibold tracking-tight">Options &amp; customisation</h3><p class="mt-2 text-[14px] leading-[1.7] text-ink-500">Cabin finishes, doors, lighting, control panels and displays from the decoration reference catalogue.</p><a href="gallery.html" class="mt-5 inline-block text-sm font-semibold hover:text-brand-600">Browse finishes →</a></div>
+            <div class="card p-8" data-reveal><span class="grid size-12 place-items-center rounded-2xl bg-mint text-brand-600">${icon("compass")}</span><h3 class="mt-5 font-display text-[20px] font-semibold tracking-tight">Installation considerations</h3><p class="mt-2 text-[14px] leading-[1.7] text-ink-500">Shaft size, pit depth, overhead and power supply are confirmed during site survey and planning.</p><a href="services.html" class="mt-5 inline-block text-sm font-semibold hover:text-brand-600">Planning service →</a></div>
+            <div class="card p-8" data-reveal><span class="grid size-12 place-items-center rounded-2xl bg-mint text-brand-600">${icon("shield")}</span><h3 class="mt-5 font-display text-[20px] font-semibold tracking-tight">Maintenance &amp; support</h3><p class="mt-2 text-[14px] leading-[1.7] text-ink-500">Preventive maintenance plans and widely available spare parts keep your lift running safely.</p><a href="services.html#maintenance" class="mt-5 inline-block text-sm font-semibold hover:text-brand-600">Maintenance →</a></div>
+          </div>
+        </section>
+
+        <section id="faq" class="relative scroll-mt-32 overflow-hidden bg-paper py-20 lg:py-28">
+          <div class="bg-floors absolute inset-0 opacity-60 mask-fade-y"></div>
+          <div class="container-x relative grid gap-12 lg:grid-cols-12">
+            <div class="lg:col-span-4" data-reveal><p class="eyebrow">FAQ</p><h2 class="h-section mt-5">Common <em>questions.</em></h2></div>
+            <div class="space-y-3 lg:col-span-8" data-reveal>
+              ${faqs.map(([q, a], i) => `<details class="group card p-6" ${i === 0 ? "open" : ""}><summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-[18px] font-semibold tracking-tight">${q}<span class="grid size-8 shrink-0 place-items-center rounded-full bg-mint text-brand-700 text-xl transition group-open:rotate-45">+</span></summary><p class="mt-4 leading-relaxed text-ink-500">${a}</p></details>`).join("")}
+            </div>
+          </div>
+        </section>
+
+        <section id="enquire" class="relative scroll-mt-32 overflow-hidden bg-mint py-20 lg:py-28">
+          <div class="bg-dots absolute inset-0 mask-radial opacity-60"></div>
+          <div class="container-x relative grid gap-12 lg:grid-cols-12">
+            <div class="lg:col-span-4" data-reveal>
+              <p class="eyebrow">Enquire</p>
+              <h2 class="h-section mt-5">Get a ${p.name.toLowerCase()} quote.</h2>
+              <p class="mt-4 text-ink-500">Tell us about your building and we’ll recommend the right configuration and brand.</p>
+              <div class="mt-8 space-y-3 text-sm">
+                <a href="${contact.phoneHref}" class="flex items-center gap-3 font-semibold hover:text-brand-600">${icon("phone", "size-4 text-brand-600")} ${contact.phone}</a>
+                <a href="mailto:${contact.email}?subject=${encodeURIComponent(p.name + " enquiry")}" class="flex items-center gap-3 font-semibold hover:text-brand-600">${icon("mail", "size-4 text-brand-600")} ${contact.email}</a>
+              </div>
+            </div>
+            <div class="card p-6 sm:p-10 lg:col-span-8" data-reveal>${R.quoteForm(p.slug)}</div>
+          </div>
+        </section>
+
+        <section class="relative overflow-hidden bg-white py-20">
+          <div class="container-x relative">
+            <div class="flex items-end justify-between gap-6" data-reveal><h2 class="font-display text-[2rem] font-semibold tracking-tight">Related <em>products</em></h2><a href="products.html" class="text-sm font-semibold hover:text-brand-600">All products →</a></div>
+            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-stagger>${related.map(R.productCard).join("")}</div>
+            <div class="mt-14 flex justify-between border-t border-ink-900/7 pt-8 text-sm font-semibold">
+              <a href="product.html?p=${products[(idx + products.length - 1) % products.length].slug}" class="hover:text-brand-600">← ${products[(idx + products.length - 1) % products.length].name}</a>
+              <a href="product.html?p=${products[(idx + 1) % products.length].slug}" class="hover:text-brand-600">${products[(idx + 1) % products.length].name} →</a>
+            </div>
+          </div>
+        </section>`;
+
+      document.getElementById("hero-img").addEventListener("click", () => ML.lightbox([{ src: p.img, alt: p.name, caption: p.name }]));
+      document.getElementById("guide")?.addEventListener("click", () => ML.lightbox([{ src: "img/1742891517.webp", alt: "Elevator planning guide", caption: "VOLKSLIFT Elevator Planning Guide — Passenger Lift MR / MRL" }]));
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
