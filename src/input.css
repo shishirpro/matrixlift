@@ -87,7 +87,7 @@
   /* Series lockup — The “Prime” / SERIES / rule / tagline (Ramillas) */
   .series { @apply inline-flex flex-col items-center text-ink-950; }
   .series-name { font-family: var(--font-nimbus); font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1; }
-  .series-cap { font-family: var(--font-cond); font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: .8; align-self: flex-end; margin-right: .2em; margin-top: -.12em; }
+  .series-cap { font-family: var(--font-cond); font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: .8; align-self: flex-end; margin-right: .2em; margin-top: .14em; }
   .series-rule { @apply relative my-2 h-[2px] w-full bg-current; }
   .series-rule::before, .series-rule::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; background: currentColor; transform: translateY(-50%) rotate(45deg); }
   .series-rule::before { left: -3px; } .series-rule::after { right: -3px; }

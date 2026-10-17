@@ -353,5 +353,43 @@
   const qp = new URLSearchParams(location.search).get("product");
   if (qp) document.querySelectorAll("select[name=interest]").forEach((s) => (s.value = qp));
 
+  /* ---------- Brand stack: caption sits right under the big word; drops lower only
+     when a descender (g, j, p, q, y) is directly above it ---------- */
+  const fitStacks = () => {
+    const cv = document.createElement("canvas").getContext("2d");
+    document.querySelectorAll(".stack").forEach((st) => {
+      const big = st.querySelector(".stack-big"), cap = st.querySelector(".stack-cap");
+      if (!big || !cap) return;
+      cap.style.marginTop = "";
+      const cs = getComputedStyle(big), fsz = parseFloat(cs.fontSize);
+      cv.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      // baseline of the last line: zero-height inline-block sits on it
+      const probe = document.createElement("span");
+      probe.style.cssText = "display:inline-block;width:0;height:0";
+      big.appendChild(probe);
+      const baseline = probe.getBoundingClientRect().top;
+      probe.remove();
+      const capR = cap.getBoundingClientRect(), bigR = big.getBoundingClientRect();
+      const rng = document.createRange(), tw = document.createTreeWalker(big, NodeFilter.SHOW_TEXT);
+      let ink = 0;
+      for (let node = tw.nextNode(); node; node = tw.nextNode()) {
+        const text = node.data;
+        for (let i = 0; i < text.length; i++) {
+          if (!/[gjpqy,;]/.test(text[i])) continue;
+          rng.setStart(node, i); rng.setEnd(node, i + 1);
+          const r = rng.getBoundingClientRect();
+          if (r.right < capR.left || r.left > capR.right || r.top < baseline - fsz * 1.2) continue;
+          ink = Math.max(ink, cv.measureText(text[i]).actualBoundingBoxDescent || fsz * 0.25);
+        }
+      }
+      const gap = fsz * 0.07;
+      // no descender above the caption: same spacing as plain headings ("About")
+      if (!ink) { cap.style.marginTop = ".22em"; return; }
+      cap.style.marginTop = baseline + ink + gap - bigR.bottom + "px";
+    });
+  };
+  (document.fonts?.ready || Promise.resolve()).then(fitStacks);
+  addEventListener("resize", () => { clearTimeout(fitStacks.t); fitStacks.t = setTimeout(fitStacks, 150); });
+
   watch();
 })();
