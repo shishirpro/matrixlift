@@ -3,20 +3,16 @@ window.R = (() => {
   const { icon } = ML;
   const arrow = icon("arrow", "size-4 transition group-hover:translate-x-1");
 
-  const values = [
-    ["Quality", "quality", "Zero tolerance in all our activities, services and products."],
-    ["Safety", "safety", "Our highest priority — it may never be compromised."],
-    ["Reliability", "reliability", "A trustworthy partner for the full life of every lift."],
-    ["Compliance", "compliance", "Working to meet industry norms and standards."],
-    ["Environment", "environment", "Eco-friendly products and practices."],
-    ["Innovation", "innovation", "Exploring new solutions for our clients’ benefit."],
-    ["Excellence", "excellence", "Aiming to be best-in-class in everything we do."],
-  ];
+  const values = ML.values;
 
   const tints = { Lifts: "bg-sky", Freight: "bg-sand", Parking: "bg-mint", Escalators: "bg-sky", Construction: "bg-sand" };
 
   return {
     values,
+    // Brand stacked heading: big word + condensed caption (company-profile style)
+    stack: (big, cap, cls = "") => `<h2 class="stack ${/[gjpqy]/.test(big) ? "desc" : ""} ${cls}"><span class="stack-big">${big}</span><span class="stack-cap">${cap}</span></h2>`,
+    // Series lockup: The “Prime” / SERIES / rule / tagline
+    series: (name, bold, rest, cls = "") => `<div class="series ${cls}"><span class="series-name">The “${name}”</span><span class="series-cap">SERIES</span><span class="series-rule"></span><span class="series-tag"><b>${bold}</b>${rest.map((r) => `<i>${r}</i>`).join("")}</span></div>`,
     fill(id, arr) {
       const el = document.getElementById(id);
       if (el) el.innerHTML = arr.join("");
@@ -77,18 +73,18 @@ window.R = (() => {
       </a>`,
 
     // Light inner-page hero with blueprint grid and optional framed image
-    pageHero: ({ eyebrow, title, text, crumbs = [], img }) => `
+    pageHero: ({ eyebrow, title, text, crumbs = [], img, big, cap, side }) => `
       <section class="relative overflow-hidden border-b border-ink-900/6 bg-paper">
         <div class="bg-blueprint absolute inset-0 mask-radial"></div>
         <div class="blob -left-24 top-10 size-80 bg-brand-200/50"></div>
         <div class="blob right-0 -top-20 size-96 bg-sky"></div>
         <div class="container-x relative grid items-center gap-12 py-16 lg:grid-cols-12 lg:py-24">
-          <div class="${img ? "lg:col-span-7" : "lg:col-span-10"}">
+          <div class="${img || side ? "lg:col-span-7" : "lg:col-span-10"}">
             <nav aria-label="Breadcrumb" class="fade-up flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400" style="--d:.15s">
               <a href="index.html" class="hover:text-ink-900">Home</a>${crumbs.map((c) => ` <span class="text-ink-300">/</span> ${c.href ? `<a href="${c.href}" class="hover:text-ink-900">${c.label}</a>` : `<span class="text-brand-600">${c.label}</span>`}`).join("")}
             </nav>
             <p class="eyebrow fade-up mt-7" style="--d:.25s">${eyebrow}</p>
-            <h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.02] sm:text-[3.4rem] lg:text-[4.1rem]" style="--d:.35s">${title}</h1>
+            ${big ? `<h1 class="stack ${/[gjpqy]/.test(big) ? "desc" : ""} fade-up mt-10 !flex w-fit sm:mt-12" style="--d:.35s"><span class="stack-big"${big.length > 8 ? ` style="font-size:clamp(2.2rem,4.2vw,3.9rem);overflow-wrap:normal"` : ""}>${big}</span><span class="stack-cap">${cap || ""}</span></h1>${title ? `<p class="fade-up mt-5 font-display text-[1.35rem] font-bold leading-snug tracking-tight text-ink-800 sm:text-[1.6rem]" style="--d:.45s">${title}</p>` : ""}` : `<h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.02] sm:text-[3.4rem] lg:text-[4.1rem]" style="--d:.35s">${title}</h1>`}
             ${text ? `<p class="lead fade-up mt-6 max-w-2xl" style="--d:.5s">${text}</p>` : ""}
           </div>
           ${img ? `
@@ -101,6 +97,15 @@ window.R = (() => {
             </div>
             <div class="floaty absolute -bottom-5 -left-2 flex items-center gap-2 rounded-2xl bg-ink-900 px-4 py-3 text-white shadow-xl">
               <span class="led font-mono text-sm">▲</span><span class="text-[12px] font-medium">MATRIX Lift</span>
+            </div>
+          </div>` : ""}
+          ${side && !img ? `
+          <div class="fade-up relative lg:col-span-5" style="--d:.45s">
+            <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-[32px] border-2 border-dashed border-brand-400/50 bg-mint/60" aria-hidden="true"></div>
+            <div class="relative overflow-hidden rounded-[30px] bg-ink-900 p-7 text-white shadow-[0_40px_80px_-40px_rgba(12,27,51,.6)] sm:p-8">
+              <div class="bg-floors absolute inset-0 opacity-15"></div>
+              <div class="blob -right-16 -top-16 size-56 bg-brand-500/30"></div>
+              <div class="relative">${side}</div>
             </div>
           </div>` : ""}
         </div>

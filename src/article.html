@@ -7,7 +7,7 @@
   <meta name="description" content="News and insights from MATRIX Lift.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="./output.css" rel="stylesheet">
 </head>
 <body data-page="news">
@@ -22,35 +22,79 @@
       const a = ML.news.find((n) => n.slug === slug) || ML.news[0];
       document.title = `${a.title} — MATRIX Lift`;
       const bodies = {
-        "message-from-ceo": `<p class="!text-xl !text-ink-900">MATRIX is more than just a provider of vertical transportation solutions — we are focused on crafting experiences in the way people interact with their environment.</p><p>We take immense pride in our growing presence in Bangladesh’s infrastructure development, and we are committed to upholding high standards.</p><h2>Affordability meets quality</h2><p>Our management, with decades of experience in the lift industry, is focused on redefining vertical mobility by offering innovative, cost-effective and customised solutions — so that businesses, residential complexes and institutions have access to world-class lift systems tailored to their needs.</p><h2>Long-term value</h2><p>We have optimised our supply chain to provide cutting-edge technology at competitive prices. Our focus is not just selling lifts, but delivering long-term value through exceptional service, robust engineering and customer-centric solutions.</p><p>We invite our valued patrons and customers to avail our services and feel the difference.</p>`,
+        "message-from-ceo": `<p class="!text-xl !text-ink-900">MATRIX is more than just a provider of Vertical Transportation Solutions, rather focused in crafting experiences the way people react with their environment.</p><p>We take immense pride in our growing presence in Bangladesh’s infrastructure development, and we committed to uphold the standards high.</p><p>MATRIX management with decades of experience in lift industry is focused to redefine vertical mobility in our Country by offering innovative, cost-effective, and customized solutions. To bridge the gap between affordability and quality, ensuring that businesses, residential complexes and institutions have access to world-class lift systems tailored to their unique needs.</p><p>We have optimized our supply chain to provide cutting-edge technology at competitive prices. Our focus is not just selling lifts but on delivering long-term value through exceptional service, robust engineering and customer-centric solutions.</p><p>As we move forward, our goal is to continue innovating and expanding our offerings to better serve our clients and contribute to the nation’s progress.</p><p>We invite our valued Patrons and Customers to avail our services and feel the difference.</p>`,
         "volkslift-factory": `<p class="!text-xl !text-ink-900">VOLKSLIFT is manufactured at a 100,000 m² campus in Xitai Science &amp; Technology Industrial Park, Huzhou, Zhejiang.</p><figure class="my-8 overflow-hidden rounded-2xl"><img src="img/volkslift_banner.png" alt="VOLKSLIFT campus aerial view"></figure><h2>Built and tested at scale</h2><ul><li>108 m test tower with 6 shafts and a 7 m/s high-speed elevator</li><li>About 1,000 workers producing over 30,000 units a year</li><li>European-sourced robotic production line under German management &amp; supervision</li></ul><h2>Certified</h2><p>European CE, TÜV type approval, ISO 9001, ISO 18001, AAA credit and A-class energy approval.</p>`,
         "cabin-design": `<p class="!text-xl !text-ink-900">A lift cabin is often the first interior a visitor experiences. Choosing the right finish is both an aesthetic and a practical decision.</p><h2>Match the building</h2><p>Brushed stainless suits offices and high-traffic buildings; champagne gold and mirror finishes suit hotels and premium residences; wood-tone and stone panels bring warmth to apartments.</p><figure class="my-8 overflow-hidden rounded-2xl"><img src="img/1742889680.webp" alt="Cabin decoration references"></figure><h2>Think about durability</h2><ul><li>Choose scratch-resistant finishes for service and goods use</li><li>Consider lighting and ceiling design together with wall panels</li><li>Pick fixtures and displays that match the cabin style</li></ul>`,
       };
+      const raw = bodies[a.slug] || "";
+      const words = raw.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+      const mins = Math.max(1, Math.round(words / 200));
+      const heads = [...raw.matchAll(/<h2>(.*?)<\/h2>/g)].map((m) => m[1]);
+      let hi = 0;
+      const body = raw.replace(/<h2>/g, () => `<h2 id="s${++hi}"><span>0${hi}</span>`);
+      const media = a.fit === "portrait"
+        ? `<div class="relative aspect-[4/5] overflow-hidden rounded-[26px] bg-gradient-to-br from-mint via-sky to-sand"><div class="bg-floors absolute inset-0 opacity-50"></div><img src="${a.img}" alt="" class="absolute inset-x-0 bottom-0 mx-auto h-[94%] w-auto object-contain mix-blend-multiply"></div>`
+        : `<div class="img-zoom aspect-[4/5] overflow-hidden rounded-[26px]"><img src="${a.img}" alt="" class="size-full object-cover"></div>`;
+      const gallery = a.slug === "cabin-design" ? `
+              <section class="mt-14" data-reveal>
+                <div class="flex items-end justify-between gap-4"><p class="eyebrow">Cabin designs</p><a href="gallery.html" class="text-[14px] font-semibold text-brand-600 hover:text-ink-900">View all designs →</a></div>
+                <div class="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-6">${["001", "004", "006", "009", "012", "015"].map((c) => `<a href="gallery.html" class="group block"><div class="img-zoom aspect-[3/4] overflow-hidden rounded-2xl bg-mist ring-1 ring-ink-900/6"><img src="img/catalogue/mc-${c}.jpg" alt="Cabin design MC-${c}" class="size-full object-cover" loading="lazy"></div><p class="mt-2 text-center font-mono text-[10.5px] tracking-[0.14em] text-ink-500">MC-${c}</p></a>`).join("")}</div>
+              </section>` : "";
+      const shareBtn = "grid size-10 place-items-center rounded-full bg-white text-ink-700 ring-1 ring-ink-900/8 transition hover:bg-ink-900 hover:text-white";
+      const url = encodeURIComponent(location.href);
       document.getElementById("main").innerHTML = `
         <article>
-          <header class="relative overflow-hidden bg-paper pb-40 pt-16">
+          <header class="relative overflow-hidden bg-paper pb-16 pt-12 lg:pb-24 lg:pt-16">
             <div class="bg-blueprint absolute inset-0 mask-radial"></div>
             <div class="blob -left-20 top-0 size-80 bg-brand-200/50"></div>
-            <div class="container-x relative max-w-3xl">
-              <a href="news.html" class="fade-up inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[14px] font-semibold ring-1 ring-ink-900/8 hover:ring-ink-900/30" style="--d:.2s">← Back to news</a>
-              <div class="fade-up mt-8 flex flex-wrap items-center gap-3" style="--d:.3s"><span class="eyebrow">${a.cat}</span><time class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">${a.date}</time></div>
-              <h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.05] sm:text-[3.4rem]" style="--d:.4s">${a.title}</h1>
-              <p class="fade-up mt-6 text-[14px] text-ink-500" style="--d:.5s">By <span class="font-semibold text-ink-900">${a.author}</span>, ${a.role}</p>
+            <div class="blob -right-24 bottom-0 size-96 bg-sky"></div>
+            <div class="container-x relative grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+              <div class="lg:col-span-7">
+                <a href="news.html" class="fade-up inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[14px] font-semibold ring-1 ring-ink-900/8 hover:ring-ink-900/30" style="--d:.2s">← Back to news</a>
+                <div class="fade-up mt-8 flex flex-wrap items-center gap-3" style="--d:.3s"><span class="eyebrow">${a.cat}</span><time class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">${a.date}</time><span class="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">· ${mins} min read</span></div>
+                <h1 class="h-display fade-up mt-6 text-[2.6rem] leading-[1.04] sm:text-[3.6rem] lg:text-[4.2rem]" style="--d:.4s">${a.title}</h1>
+                <p class="fade-up mt-6 max-w-xl text-[17px] leading-[1.75] text-ink-600" style="--d:.45s">${a.excerpt}</p>
+                <div class="fade-up mt-8 flex items-center gap-4" style="--d:.5s">
+                  <span class="grid size-12 place-items-center rounded-full bg-ink-900 font-display text-[15px] font-bold text-white">${a.author.split(" ").map((w) => w[0]).slice(0, 2).join("")}</span>
+                  <div><p class="text-[15px] font-semibold text-ink-900">${a.author}</p><p class="text-[13.5px] text-ink-500">${a.role}</p></div>
+                </div>
+              </div>
+              <div class="fade-up relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none" style="--d:.5s">
+                <div class="absolute -inset-3 rotate-3 rounded-[34px] bg-brand-500/15"></div>
+                <div class="relative rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8">${media}</div>
+              </div>
             </div>
           </header>
-          <div class="container-x relative -mt-28 max-w-4xl"><div class="fade-up rounded-[32px] bg-white p-3 shadow-[0_40px_80px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/8" style="--d:.5s">${a.fit === "portrait" ? `<div class="relative aspect-[16/9] overflow-hidden rounded-[24px] bg-gradient-to-br from-mint via-sky to-sand"><div class="bg-floors absolute inset-0 opacity-50"></div><img src="${a.img}" alt="" class="absolute inset-x-0 bottom-0 mx-auto h-[94%] w-auto object-contain mix-blend-multiply"></div>` : `<img src="${a.img}" alt="" class="aspect-[16/9] w-full rounded-[24px] object-cover">`}</div></div>
-          <div class="prose-lift container-x max-w-2xl py-16 text-[17px]" data-reveal>${bodies[a.slug] || ""}
-            <p class="mt-10 rounded-xl bg-amber-50 p-4 !text-xs !text-amber-800">Prototype copy. Replace with client-approved text and verified publication date.</p>
-          </div>
-          <div class="container-x max-w-2xl pb-24">
-            <div class="relative overflow-hidden rounded-[26px] bg-mint p-8 sm:flex sm:items-center sm:justify-between">
-              <div class="bg-dots absolute inset-0 opacity-50"></div>
-              <div class="relative"><p class="font-display text-[22px] font-semibold tracking-tight">Want more <em>information?</em></p><p class="mt-1 text-[14px] text-ink-500">Our team can help with products, brands and services.</p></div>
-              <a href="contact.html#quote" class="btn btn-dark relative mt-5 sm:mt-0">Request information</a>
+
+          <div class="container-x grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
+            <aside class="lg:col-span-3">
+              <div class="space-y-5 lg:sticky lg:top-32">
+                ${heads.length ? `<nav class="rounded-[22px] bg-white p-6 ring-1 ring-ink-900/7"><p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">In this article</p><ol class="mt-4 space-y-3">${heads.map((h, i) => `<li><a href="#s${i + 1}" class="flex items-center gap-3 text-[14.5px] font-semibold text-ink-700 transition hover:text-brand-600"><span class="led rounded-md bg-ink-900 px-1.5 py-0.5 font-mono text-[10px]">0${i + 1}</span>${h}</a></li>`).join("")}</ol></nav>` : ""}
+                <div class="rounded-[22px] bg-mint p-6">
+                  <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-500">Share</p>
+                  <div class="mt-4 flex gap-2">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" rel="noopener" class="${shareBtn}" aria-label="Share on Facebook">${ML.icon("facebook", "size-4")}</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener" class="${shareBtn}" aria-label="Share on LinkedIn">${ML.icon("linkedin", "size-4")}</a>
+                    <a href="mailto:?subject=${encodeURIComponent(a.title)}&body=${url}" class="${shareBtn}" aria-label="Share by email">${ML.icon("mail", "size-4")}</a>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <div class="lg:col-span-8 lg:col-start-5">
+              <div class="prose-lift prose-art text-[17px]" data-reveal>${body}</div>
+              <p class="mt-10 rounded-xl bg-amber-50 p-4 text-xs text-amber-800">Prototype copy. Replace with client-approved text and verified publication date.</p>
+              ${gallery}
+              <div class="relative mt-14 overflow-hidden rounded-[28px] bg-ink-900 p-8 text-white sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-10" data-reveal>
+                <div class="bg-floors absolute inset-0 opacity-20"></div>
+                <div class="blob -right-16 -top-16 size-64 bg-brand-500/30"></div>
+                <div class="relative"><p class="font-display text-[24px] font-semibold tracking-tight">Want more <em class="text-brand-300">information?</em></p><p class="mt-1 text-[14.5px] text-white/65">Our team can help with products, brands and services.</p></div>
+                <a href="contact.html#quote" class="btn btn-primary relative mt-6 shrink-0 sm:mt-0">Request information</a>
+              </div>
             </div>
           </div>
         </article>
-        <section class="relative overflow-hidden bg-sky py-20"><div class="bg-blueprint absolute inset-0 mask-fade-y opacity-60"></div><div class="container-x relative"><h2 class="font-display text-[2rem] font-semibold tracking-tight">More from <em>MATRIX</em></h2><div class="mt-10 grid gap-5 md:grid-cols-2" data-stagger>${ML.news.filter((n) => n !== a).map(R.newsCard).join("")}</div></div></section>`;
+        <section class="relative overflow-hidden bg-sky py-12"><div class="bg-blueprint absolute inset-0 mask-fade-y opacity-60"></div><div class="container-x relative"><h2 class="font-display text-[2rem] font-semibold tracking-tight">More from <em>MATRIX</em></h2><div class="mt-10 grid gap-5 md:grid-cols-2" data-stagger>${ML.news.filter((n) => n !== a).map(R.newsCard).join("")}</div></div></section>`;
     })();
   </script>
   <script src="js/main.js"></script>

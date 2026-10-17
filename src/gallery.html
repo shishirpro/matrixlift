@@ -7,25 +7,25 @@
   <meta name="description" content="Lift cabin decoration references, control panels and completed installations from MATRIX Lift.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="./output.css" rel="stylesheet">
 </head>
 <body data-page="gallery">
   <div id="header-slot"></div>
   <main>
     <div id="hero"></div>
-    <section class="relative overflow-hidden bg-paper py-16 lg:py-24">
+    <section class="relative overflow-hidden bg-paper py-10 lg:py-20">
       <div class="bg-cables absolute inset-0 mask-fade-y opacity-60"></div>
       <div class="container-x relative">
         <div id="filters" class="flex flex-wrap gap-2" role="group" aria-label="Filter gallery" data-reveal></div>
-        <div id="grid" class="mt-10 columns-2 gap-4 sm:columns-3 lg:columns-4 [&>*]:mb-4"></div>
+        <div id="grid" class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"></div>
       </div>
     </section>
-    <section class="relative overflow-hidden bg-mint py-20">
+    <section class="relative overflow-hidden bg-mint py-12">
       <div class="bg-dots absolute inset-0 opacity-60"></div>
       <div class="container-x relative flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left" data-reveal>
-        <div><h2 class="font-display text-[2rem] font-semibold tracking-tight">Like a finish you see <em>here?</em></h2><p class="mt-2 text-ink-500">We’ll help you specify it for your building.</p></div>
-        <a href="contact.html#quote" class="btn btn-dark">Discuss a similar project</a>
+        <div><h2 class="font-display text-[2rem] font-bold tracking-tight">Customize Decoration <em>Options.</em></h2><p class="mt-2 text-ink-500">Tell us the design code you like — we will specify it for your building.</p></div>
+        <a href="contact.html#quote" class="btn btn-dark">Request a Quote</a>
       </div>
     </section>
   </main>
@@ -33,25 +33,14 @@
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script>
-    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Projects & design gallery", title: "Cabins finished like <em>interiors.</em>", text: "Decoration references, fixtures and installations to help you choose the right look for your building.", crumbs: [{ label: "Gallery" }], img: "img/1653726230.jpg" });
-    const series = {
-      "1742889649": "Brushed stainless", "1742889658": "Marble & light", "1742889680": "Rose gold & champagne",
-      "1742889692": "Wood & gold", "1742889702": "Stone & colour",
-    };
-    const cabins = Object.entries(series).flatMap(([p, name]) => ["00", "01", "02", "10", "11", "12"].map((k, j) => ({
-      src: `img/cabins/${p}_${k}.jpg`, cat: "Lift Cabins", caption: `${name} cabin — design ${j + 1}`,
-    })));
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Product catalogue", big: "Cabin", cap: "Designs", title: "Cabin · Door · Decoration Designs", text: "MATRIX LIFT cabin designs MC-001 to MC-018, door designs MD-001 to MD-012 and ELEVATES cabin and door models — Customize Decoration Options.", crumbs: [{ label: "Gallery" }], img: "img/catalogue/mc-014.jpg" });
     const items = [
-      ...cabins,
-      { src: "img/1742889713.webp", cat: "Fixtures & Panels", caption: "Car operating panels, hall buttons & displays" },
-      { src: "img/1742891517.webp", cat: "Fixtures & Panels", caption: "Elevator planning guide — Passenger Lift MR / MRL" },
-      { src: "img/1653729974.jpeg", cat: "Installations", caption: "Glass home lift — residential" },
-      { src: "img/1653729875.jpg", cat: "Installations", caption: "Panoramic lifts — atrium" },
-      { src: "img/1653726230.jpg", cat: "Installations", caption: "Passenger lift — lobby" },
-      { src: "img/profile/p-panoramic.jpg", cat: "Installations", caption: "Panoramic lifts" },
-      { src: "img/profile/p-home.jpg", cat: "Installations", caption: "Home lift — residence" },
-      { src: "img/1653730225.jpg", cat: "Installations", caption: "Car elevator" },
-      { src: "img/escalator-1600.jpg", cat: "Installations", caption: "Escalators — public space" },
+      ...ML.cabins.map((c) => ({ src: c.img, cat: "MATRIX LIFT Cabins", code: c.code, caption: `Cabin Design ${c.code}` })),
+      ...ML.doors.map((c) => ({ src: c.img, cat: "MATRIX LIFT Doors", code: c.code, caption: `Door Design ${c.code}` })),
+      ...ML.ecabins.map((c) => ({ src: c.img, cat: "ELEVATES Designs", code: c.code, caption: `ELEVATES Cabin ${c.code}`, spec: Object.entries(c.spec).map(([k, v]) => `${k}: ${v}`).join(" · ") })),
+      ...ML.edoors.map((c) => ({ src: c.img, cat: "ELEVATES Designs", code: c.code, caption: `ELEVATES Door ${c.code}`, spec: c.spec })),
+      { src: "img/catalogue/landing-door-jamb.png", cat: "Decoration", code: "", caption: "Landing Door Jamb Details" },
+      { src: "img/catalogue/ceiling-designs.png", cat: "Decoration", code: "", caption: "Cabin ceiling designs" },
     ].map((x) => ({ ...x, alt: x.caption }));
     const cats = ["All", ...new Set(items.map((i) => i.cat))];
     const grid = document.getElementById("grid");
@@ -60,12 +49,10 @@
     const draw = (cat) => {
       shown = items.filter((i) => cat === "All" || i.cat === cat);
       grid.innerHTML = shown.map((it, i) => `
-        <button type="button" data-i="${i}" class="group relative block w-full break-inside-avoid overflow-hidden rounded-[22px] bg-white p-2 text-left ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,27,51,.45)]" data-reveal="zoom" style="--d:${(i % 8) * 50}ms" aria-label="Open: ${it.caption}">
-          <span class="block overflow-hidden rounded-[16px]"><img src="${it.src}" alt="${it.alt}" class="w-full transition duration-700 group-hover:scale-105" loading="lazy"></span>
-          <span class="absolute inset-x-2 bottom-2 translate-y-2 rounded-b-[16px] bg-gradient-to-t from-ink-950/85 to-transparent p-5 pt-16 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">
-            <span class="font-mono text-[10px] uppercase tracking-widest text-brand-300">${it.cat}</span>
-            <span class="mt-1 block text-sm font-medium text-white">${it.caption}</span>
-          </span>
+        <button type="button" data-i="${i}" class="group relative flex w-full flex-col rounded-[18px] bg-white p-2 text-left ring-1 ring-[#d8c49a]/70 transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,27,51,.45)] ${it.cat === "Decoration" ? "col-span-2 lg:col-span-3" : ""}" data-reveal="zoom" style="--d:${(i % 8) * 40}ms" aria-label="Open: ${it.caption}">
+          <span class="block overflow-hidden rounded-[12px] bg-paper"><img src="${it.src}" alt="${it.alt}" class="${it.cat === "Decoration" ? "aspect-[16/9] object-contain" : "aspect-[2/3] object-cover"} w-full transition duration-700 group-hover:scale-105" loading="lazy"></span>
+          <span class="mt-2 block text-center font-display text-[15px] font-bold tracking-wide text-ink-900">${it.code || it.caption}</span>
+          ${it.spec ? `<span class="mt-1 block px-1 pb-1 text-center text-[11.5px] leading-snug text-ink-500">${it.spec}</span>` : ""}
         </button>`).join("");
       ML.watch?.(grid);
     };

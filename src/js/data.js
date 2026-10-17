@@ -23,7 +23,7 @@ ML.series = [
 
 ML.products = [
   {
-    slug: "passenger-lift", name: "Passenger Lift", cat: "Lifts", img: "img/profile/p-passenger.jpg",
+    slug: "passenger-lift", name: "Passenger Lift", cat: "Lifts", img: "img/products/p-passenger.jpg",
     line: "Smooth, quiet vertical travel for residential and commercial buildings.",
     overview: "Passenger lifts for apartments, offices, hotels and mixed-use buildings, available in Machine Room on Top (MR) and Machine Room Less (MRL) configurations. Offered across all three series — Apex (VOLKSLIFT), Prime (MATRIX LIFT) and Value (ELEVATES).",
     uses: ["Residential apartments", "Office buildings", "Hotels & hospitality", "Shopping complexes"],
@@ -31,105 +31,105 @@ ML.products = [
     specs: true,
   },
   {
-    slug: "home-lift", name: "Home Lift", cat: "Lifts", img: "img/profile/p-home.jpg",
+    slug: "home-lift", name: "Home Lift", cat: "Lifts", img: "img/products/p-home.jpg",
     line: "Compact, elegant lifts for private residences and duplexes.",
     overview: "Home lifts for villas, duplexes and private homes where space is limited, with minimal pit and headroom and finishes that match the interior.",
     uses: ["Villas & duplexes", "Private residences", "Accessibility upgrades", "Boutique buildings"],
     benefits: ["Small footprint", "Glass or enclosed shaft", "Quiet operation", "Premium cabin finishes"],
   },
   {
-    slug: "panoramic-lift", name: "Panoramic Lift", cat: "Lifts", img: "img/profile/p-panoramic.jpg",
+    slug: "panoramic-lift", name: "Panoramic Lift", cat: "Lifts", img: "img/products/p-panoramic.jpg",
     line: "Glass cabins that turn vertical travel into an architectural feature.",
     overview: "Panoramic lifts combine glass and stainless steel to create a landmark element in atriums, malls and façades while giving passengers an open view.",
     uses: ["Atriums & lobbies", "Shopping malls", "Hotels", "External façades"],
     benefits: ["Round, semi-round and flat glass", "Laminated safety glass", "Feature lighting", "Custom architectural integration"],
   },
   {
-    slug: "hospital-bed-lift", name: "Hospital Bed Lift", cat: "Lifts", img: "img/profile/p-hospital.jpg",
+    slug: "hospital-bed-lift", name: "Hospital Bed Lift", cat: "Lifts", img: "img/products/p-hospital.jpg",
     line: "Deep cabins and precise levelling for beds, stretchers and staff.",
     overview: "Bed lifts provide the cabin depth, door width and levelling accuracy hospitals need to move patients safely on beds and stretchers.",
     uses: ["Hospitals", "Clinics", "Diagnostic centres", "Care homes"],
     benefits: ["Deep cabin for beds", "Accurate floor levelling", "Hygienic stainless interiors", "Priority service modes"],
   },
   {
-    slug: "cargo-lift", name: "Cargo Lift", cat: "Freight", img: "img/profile/p-cargo.jpg",
+    slug: "cargo-lift", name: "Cargo Lift", cat: "Freight", img: "img/products/p-cargo.jpg",
     line: "Heavy-duty freight lifts for factories, warehouses and logistics.",
     overview: "Cargo lifts built for heavy loads and frequent loading cycles, with reinforced cabins and wide doors. MATRIX has handled lifts up to 6000 kg capacity.",
     uses: ["Garment & manufacturing", "Warehouses", "Retail back-of-house", "Logistics centres"],
     benefits: ["Up to 6000 kg handled", "Reinforced cabin floor", "Wide door openings", "Durable finishes"],
   },
   {
-    slug: "cargo-lifting-platform", name: "Cargo Lifting Platform", cat: "Freight", img: "img/profile/p-cargo-platform.jpg",
+    slug: "cargo-lifting-platform", name: "Cargo Lifting Platform", cat: "Freight", img: "img/products/p-cargo-platform.jpg",
     line: "Open-frame platforms that lift goods between levels.",
     overview: "Guide-rail cargo platforms for moving goods between floors and mezzanines where a full lift shaft is not required.",
     uses: ["Factories", "Warehouses", "Mezzanine floors", "Loading areas"],
     benefits: ["Minimal civil works", "Robust steel frame", "Safety gates and railings", "Flexible sizing"],
   },
   {
-    slug: "car-lift", name: "Car Lift", cat: "Parking", img: "img/profile/p-car.jpg",
+    slug: "car-lift", name: "Car Lift", cat: "Parking", img: "img/products/p-car.jpg",
     line: "Vehicle elevators that move cars between parking levels.",
     overview: "Car lifts transport vehicles between floors where ramps are impractical, maximising usable parking space in residential and commercial buildings.",
     uses: ["Basement parking", "Showrooms", "Residential towers", "Commercial buildings"],
     benefits: ["Platform for cars and SUVs", "Heavy-duty drive", "Space-saving vs. ramps", "Clear driver signalling"],
   },
   {
-    slug: "car-lifting-platform", name: "Car Lifting Platform", cat: "Parking", img: "img/profile/p-car-platform.jpg",
+    slug: "car-lifting-platform", name: "Car Lifting Platform", cat: "Parking", img: "img/products/p-car-platform.jpg",
     line: "Shaftless platforms that raise vehicles between levels.",
     overview: "Car lifting platforms move vehicles vertically on a guided steel structure — an economical alternative to a full car lift.",
     uses: ["Residential garages", "Showrooms", "Workshops", "Small buildings"],
     benefits: ["No full shaft required", "Heavy-duty structure", "Mechanical safety locks", "Cost-effective"],
   },
   {
-    slug: "2-post-car-park", name: "2 Post Car Park", cat: "Parking", img: "img/profile/p-2post.jpg",
+    slug: "2-post-car-park", name: "2 Post Car Park", cat: "Parking", img: "img/products/p-2post.jpg",
     line: "Two-post stackers that double parking in the same footprint.",
     overview: "Two-post parking lifts stack one car above another, doubling capacity in garages and basements with a compact footprint.",
     uses: ["Apartment basements", "Private garages", "Offices", "Dealerships"],
     benefits: ["Doubles parking capacity", "Compact footprint", "Mechanical safety locks", "Low maintenance"],
   },
   {
-    slug: "4-post-car-park", name: "4 Post Car Park", cat: "Parking", img: "img/profile/p-4post.jpg",
+    slug: "4-post-car-park", name: "4 Post Car Park", cat: "Parking", img: "img/products/p-4post.jpg",
     line: "Four-post stackers for heavier vehicles and extra stability.",
     overview: "Four-post parking lifts support vehicles on four columns for added stability, suitable for SUVs and heavier cars.",
     uses: ["Residential parking", "Commercial parking", "Dealerships", "Service centres"],
     benefits: ["Extra stability", "Suits SUVs", "Mechanical safety locks", "Free-standing installation"],
   },
   {
-    slug: "scissor-platform", name: "Scissor Platform", cat: "Platforms", img: "img/profile/p-scissor-platform.jpg",
+    slug: "scissor-platform", name: "Scissor Platform", cat: "Platforms", img: "img/products/p-scissor-platform.jpg",
     line: "Hydraulic scissor tables for loading and work positioning.",
     overview: "Scissor platforms raise goods or work pieces over short heights — ideal for loading docks and production lines.",
     uses: ["Loading docks", "Production lines", "Warehouses", "Workshops"],
     benefits: ["Hydraulic operation", "High load capacity", "Low lowered height", "Compact design"],
   },
   {
-    slug: "scissor-lift", name: "Scissor Lift", cat: "Platforms", img: "img/profile/p-scissor-lift.jpg",
+    slug: "scissor-lift", name: "Scissor Lift", cat: "Platforms", img: "img/products/p-scissor-lift.jpg",
     line: "Mobile elevated work platforms for maintenance at height.",
     overview: "Self-propelled scissor lifts give crews a safe, stable working platform for installation and maintenance at height.",
     uses: ["Building maintenance", "Installation work", "Warehouses", "Event venues"],
     benefits: ["Stable elevated platform", "Guard railings", "Mobile", "Easy controls"],
   },
   {
-    slug: "escalator", name: "Escalator", cat: "Escalators", img: "img/profile/p-escalator.jpg",
+    slug: "escalator", name: "Escalator", cat: "Escalators", img: "img/products/p-escalator.jpg",
     line: "Reliable people movers for high-traffic public and retail spaces.",
     overview: "Escalators move large numbers of people continuously in malls, transit hubs and public buildings, with energy-saving and safety features.",
     uses: ["Shopping malls", "Airports & metro", "Supermarkets", "Public buildings"],
     benefits: ["Continuous high capacity", "Energy-saving modes", "Indoor & outdoor models", "Comprehensive safety devices"],
   },
   {
-    slug: "moving-walk", name: "Moving Walk", cat: "Escalators", img: "img/profile/p-moving.jpg",
+    slug: "moving-walk", name: "Moving Walk", cat: "Escalators", img: "img/products/p-moving.jpg",
     line: "Horizontal and inclined walkways for airports and large venues.",
     overview: "Moving walks carry passengers, trolleys and luggage over long horizontal or gently inclined distances.",
     uses: ["Airports", "Hypermarkets", "Exhibition centres", "Transit corridors"],
     benefits: ["Horizontal or inclined", "Trolley-compatible", "Smooth, quiet ride", "Energy-saving modes"],
   },
   {
-    slug: "construction-hoist", name: "Construction Hoist", cat: "Construction", img: "img/profile/p-hoist.jpg",
+    slug: "construction-hoist", name: "Construction Hoist", cat: "Construction", img: "img/products/p-hoist.jpg",
     line: "Material hoists that move loads up construction sites.",
     overview: "Construction hoists lift materials up building sites quickly and safely, reducing reliance on cranes and manual handling.",
     uses: ["High-rise construction", "Infrastructure", "Industrial plants", "Renovation projects"],
     benefits: ["Fast material handling", "Modular mast", "Overload protection", "Easy erection"],
   },
   {
-    slug: "construction-lift", name: "Construction Lift", cat: "Construction", img: "img/profile/p-construction-lift.jpg",
+    slug: "construction-lift", name: "Construction Lift", cat: "Construction", img: "img/products/p-construction-lift.jpg",
     line: "Rack-and-pinion lifts that carry crews and materials on site.",
     overview: "Construction lifts transport workers and materials up high-rise sites with enclosed cages and rack-and-pinion drive.",
     uses: ["High-rise construction", "Bridges & towers", "Industrial plants", "Large projects"],
@@ -157,36 +157,49 @@ ML.mrlSpecs = [
 ];
 
 ML.services = [
-  { key: "planning", name: "Planning", icon: "compass", text: "Planning vertical transportation by traffic calculation to determine the mode, number, capacity and speed of equipment in logical sequence." },
-  { key: "supply", name: "Supply", icon: "truck", text: "Supply chain support with faster, on-time delivery and inventory control after delivery." },
-  { key: "installation", name: "Installation", icon: "wrench", text: "Installation as per industry norms, with quality control of the installation process by qualified engineers and technicians." },
-  { key: "maintenance", name: "Maintenance", icon: "shield", text: "A dedicated, motivated and skilled team provides maintenance services 24/7, 365 days a year." },
-  { key: "modernization", name: "Modernization", icon: "refresh", text: "Modernize and upgrade old lifts and escalators with the latest state-of-the-art kits and components." },
-  { key: "spare-parts", name: "Spare Parts", icon: "cog", text: "Spare parts support for all the equipment supplied by us." },
+  { key: "planning", name: "Planning", icon: "compass", text: "Planning Vertical Transportation Solutions by means of Traffic Calculation to determine mode of equipment, number of equipment, capacity, speed etc. in logical sequence." },
+  { key: "supply", name: "Supply", icon: "truck", text: "Supply chain support by means of faster and on time delivery." },
+  { key: "installation", name: "Installation", icon: "wrench", text: "Installation services as per the norms of the industry. Quality Control of Installation Process by qualified Engineers and Technicians." },
+  { key: "maintenance", name: "Maintenance", icon: "shield", text: "Dedicated and motivated Skilled Team are engaged to provide Maintenance Services 24/7 - 365 days a year." },
+  { key: "modernization", name: "Modernization", icon: "refresh", text: "Modernization and up-grade old lifts and escalators by latest state-of-the-art kits and components." },
+  { key: "spare-parts", name: "Spare Parts", icon: "cog", text: "Provide Spare Parts Support to all the equipments supplied by us." },
+];
+
+// Company Profile 2026 — Vision, Mission & Values
+ML.vision = "To become the industry reference for what we do and to make our Company a happy place to work and elevate living standard of our compatriots.";
+ML.mission = "To maintain our core services as an independent and leading provider of Vertical Transportation Solutions (VTS) namely Lift, Escalator, Moving Walk, Parking System and Construction Hoist.";
+ML.values = [
+  ["Quality", "quality", "‘Zero’ tolerance to all our activities, services and products."],
+  ["Safety", "safety", "Our highest priority and may never be compromised."],
+  ["Reliability", "reliability", "Reliable partner in all aspects of our business."],
+  ["Compliance", "compliance", "Utmost effort to comply industry standards and norms."],
+  ["Environment", "environment", "Focused on Eco Friendly Technology."],
+  ["Innovation", "innovation", "Proactively explore new territory."],
+  ["Excellence", "excellence", "Strive to be the best in Class and proud to put our name on what we do."],
 ];
 
 ML.team = [
   {
     name: "Soyel Akter Banu (Munni)", short: "Soyel Akter Banu", role: "Chairperson", img: "img/chairperson-shape.png",
-    bio: "Masters in Management. Brings more than twenty-five years of experience in the telecom industry.",
-    edu: ["Masters in Management"], exp: { n: 25, unit: "+ yrs", label: "Telecom industry" }, sector: "Telecom",
+    bio: "Masters in Management. Brings with her more than twenty five years experience in the Telecom Industry.",
+    edu: ["Masters in Management"], exp: { n: 25, unit: "+ yrs", label: "Telecom Industry" }, sector: "Telecom",
   },
   {
     name: "Emdad Ur Rahman", short: "Emdad Ur Rahman", role: "Managing Director & CEO", img: "img/md_shape.png",
-    bio: "A Science Graduate, EMBA and Mechanical Technologist with about four decades of experience in the lift industry at home and abroad. Well connected with the global elevator industry, core-component manufacturers and industry experts. Led BEELIA as President for two terms and now serves as Advisor to the Board.",
-    edu: ["Science Graduate", "EMBA", "Mechanical Technologist"], exp: { n: 40, unit: " yrs", label: "Lift industry, home & abroad" }, sector: "Lifts",
-    badge: "BEELIA President 2022–26 · Advisor 2026–28",
-    quote: "We invite our valued patrons and customers to avail our services and feel the difference.",
+    bio: "A Science Graduate, EMBA and Mechanical Technologist brings with him about 4 decades of experience in the Lift Industry in home and abroad. Well connected in the global elevator industry, elevator core components manufacturers and industry experts. Engaged in various Social Activities. Lead BEELIA, Bangladesh Elevator, Escalators & Lift Importers Association as President for two terms 2022-24 & 2024-26.",
+    edu: ["Science Graduate", "EMBA", "Mechanical Technologist"], exp: { n: 40, unit: " yrs", label: "Lift Industry, home & abroad" }, sector: "Lifts",
+    badge: "Ex-President, BEELIA · 2022-24, 2024-26",
+    quote: "We invite our valued Patrons and Customers to avail our services and feel the difference.",
   },
   {
     name: "Shuvo Ashish Rahman", short: "Shuvo Ashish Rahman", role: "Director", img: "img/director_1_shape.png",
-    bio: "Bachelor in Computer Science & Engineering (CSE) and MBA, major in Marketing. Brings over eight years of experience in the aviation industry.",
-    edu: ["B.Sc. in CSE", "MBA, Marketing"], exp: { n: 8, unit: "+ yrs", label: "Aviation industry" }, sector: "Aviation",
+    bio: "Bachelor in Computer Science & Engineering (CSE) and MBA, major in Marketing. Brings with him over 8 years experience in Aviation Industry.",
+    edu: ["B.Sc. in CSE", "MBA, Marketing"], exp: { n: 8, unit: "+ yrs", label: "Aviation Industry" }, sector: "Aviation",
   },
   {
     name: "Tamzid Tahmid Nafi", short: "Tamzid Tahmid Nafi", role: "Director", img: "img/director_2_shape.png",
-    bio: "Bachelor in Business Administration (BBA), major in Management Information Systems. Growing into the lift industry domain.",
-    edu: ["BBA, Management Information Systems"], exp: { n: null, unit: "", label: "Growing in the lift industry" }, sector: "Lifts",
+    bio: "Bachelor in Business Administration, (BBA) major in Management Information Systems. Growing into Lift Industry Domain.",
+    edu: ["BBA, Management Information Systems"], exp: { n: null, unit: "", label: "Growing into Lift Industry Domain" }, sector: "Lifts",
   },
 ];
 
@@ -204,20 +217,66 @@ ML.staff = [
 ML.teams = ["Field Survey Team", "Maintenance Team", "Servicing Assistants", "Installation Team", "Installation Assistants", "Front Desk"];
 
 // "Why choose us" (company profile p.12)
+// "Why Choose US!" (Company Profile 2026)
 ML.why = [
-  { title: "Industry Expertise", icon: "excellence", points: ["40+ years industry experience", "Second generation involved in the management", "Affiliation with industry-leading manufacturers", "Knowledge of the Bangladesh elevator market, its growth and trend"] },
-  { title: "Tailored Solutions", icon: "compass", points: ["Flexible in accommodating difficult shaft sizes", "Customised decoration options"] },
-  { title: "Product Mix", icon: "cog", points: ["3-tier product strategy", "Can serve all segments of the market"] },
-  { title: "Own Brand Strategy", icon: "quality", points: ["Two own brands that no other entity can offer or imitate", "Careful control of configuration and quality", "No brand royalty — lower cost without compromising quality"] },
-  { title: "Commitment", icon: "shield", points: ["Faster and timely delivery", "Inventory control after delivery", "Qualified installation & QC during installation", "Qualified maintenance & 24/7 after-sales service"] },
+  { title: "Industry Expertise", icon: "excellence", points: ["40+ years Industry Experience.", "Second generation involved in the management.", "Affiliation with Industry leading manufacturers.", "Knowledge on Bangladesh Elevator Market, its growth and trend."] },
+  { title: "Tailored Solutions", icon: "compass", points: ["Flexible in accommodating difficult shaft sizes.", "Customize Decoration Options."] },
+  { title: "Product Mix", icon: "cog", points: ["3-Tire Product Strategy.", "Can serve all the segments of the market."] },
+  { title: "Commitment", icon: "shield", points: ["Faster and timely delivery.", "Inventory Control after delivery.", "Qualified Installation Facility.", "QC during Installation.", "Qualified Maintenance Facility.", "24/7 After Sales Service."] },
+  { title: "Own Brand Strategy", icon: "quality", points: ["Two of our own Brands will remain with us forever. No other entity can offer these brands or imitate it.", "As we own the Brands, we are much careful about its configuration and quality.", "We don’t have to pay Brand Royalty to anyone thus can reduce cost without compromising quality and aesthetics."] },
 ];
 ML.track = [
-  { n: 1000, suffix: "+", label: "Lift units sold" },
-  { n: 30, suffix: "", label: "Storeys — tallest installation" },
-  { n: 6000, suffix: " kg", label: "Highest capacity handled" },
-  { n: 40, suffix: "+", label: "Years industry experience" },
+  { n: 1000, suffix: "+", label: "unit lift sales handled" },
+  { n: 30, suffix: "", label: "storied buildings — installation" },
+  { n: 6000, suffix: " kg", label: "capacity lift handled" },
+  { n: 40, suffix: "+", label: "years Industry Experience" },
 ];
-ML.sensitive = ["Prime Minister’s Office", "National Assembly", "Bangladesh Secretariat", "Army HQ", "CHM’s", "Airport", "Public hospitals"];
+ML.sensitive = ["Prime Minister’s Office", "National Assembly", "Bangladesh Secretariat", "Army HQ", "CHM’s", "Airport", "All most all Public Hospitals"];
+
+// Product catalogues — designs
+ML.cabins = Array.from({ length: 18 }, (_, i) => ({ code: "MC-" + String(i + 1).padStart(3, "0"), img: "img/catalogue/mc-" + String(i + 1).padStart(3, "0") + ".jpg", brand: "MATRIX LIFT" }));
+ML.doors = Array.from({ length: 12 }, (_, i) => ({ code: "MD-" + String(i + 1).padStart(3, "0"), img: "img/catalogue/md-" + String(i + 1).padStart(3, "0") + ".jpg", brand: "MATRIX LIFT" }));
+ML.ecabins = [
+  { code: "EC-01", img: "img/catalogue/ec-01.png", spec: { Ceiling: "Steel Sheet, LED Lighting", "Cabin Side Walls": "SS Hairline Finish", "Cabin Rear Wall": "SS Hairline Finish", "Cabin Door": "SS Hairline Finish", Floor: "PVC Floor" } },
+  { code: "EC-02", img: "img/catalogue/ec-02.png", spec: { Ceiling: "Steel Sheet, acrylic panel, LED Lighting", "Cabin Side Walls": "SS Hairline Finish", "Cabin Rear Wall": "SS Mirror Etching Finish", "Cabin Door": "SS Hairline Finish", Floor: "PVC Floor" } },
+  { code: "EC-03", img: "img/catalogue/ec-03.png", spec: { Ceiling: "Steel Sheet, acrylic panel, LED Lighting", "Cabin Side Walls": "SS Hairline Finish", "Cabin Rear Wall": "SS Mirror Etching Finish", "Cabin Door": "SS Hairline Finish", Floor: "PVC Floor" } },
+  { code: "EC-04", img: "img/catalogue/ec-04.png", spec: { Ceiling: "Steel Sheet, acrylic panel, LED Lighting", "Cabin Side Walls": "SS Hairline & Mirror Finish", "Cabin Rear Wall": "SS Mirror Etching Finish", "Cabin Door": "SS Hairline Finish", Floor: "PVC Floor" } },
+];
+ML.edoors = [
+  { code: "ED-01", img: "img/catalogue/ed-01.png", spec: "All Landing Door · SS Hairline Finish" },
+  { code: "ED-02", img: "img/catalogue/ed-02.png", spec: "Main Landing Door · SS Mirror Etching Finish" },
+  { code: "ED-03", img: "img/catalogue/ed-03.png", spec: "All Landing Door · SS Mirror Etching Finish" },
+  { code: "ED-04", img: "img/catalogue/ed-04.png", spec: "All Landing Door · SS Mirror Etching Finish" },
+];
+
+// Brand catalogues — message & why choose (MATRIX Product Catalogue 2025 / ELEVATES Product Catalogue)
+ML.brandMatrix = {
+  intro: "MATRIX is a proudly Bangladesh registered trademark and a leading name in the elevator industry. Based on my 40 years industry experience and with a commitment to innovation, efficiency, and affordability, we specializes in providing high-quality lift solutions tailored to our customer’s unique needs.",
+  mission: "At MATRIX, our goal is to bridge the gap between affordability and quality. We strive to offer cost-effective lift solutions without compromising on safety, durability and modern design.",
+  manufacturing: "We have multiple choices of reputed and modern robotic production facilities in China, leveraging advanced technology and precision engineering. This allows us to maintain international standards while keeping costs competitive, ensuring our customers receive the best value of their investment.",
+  why: [
+    ["The brand is registered in our name", "We are more careful to maintain the quality and performance to protect our long earn reputation."],
+    ["Customization", "We provide tailored lift solutions to meet diverse architectural and operational requirements."],
+    ["Affordability", "Our cost-effective manufacturing process helps reduce expenses while maintaining quality."],
+    ["Safety & Reliability", "We adhere to strict safety standards to ensure smooth and secure lift operations."],
+    ["Modern Design", "Our lifts are designed with aesthetics and functionality in mind, enhancing the value of any space."],
+    ["Manufacturer & Certificate details", "We provide manufacturers details and test certificate of critical components with each lift."],
+  ],
+  commitment: "MATRIX is dedicated to delivering reliable, efficient, and customized lift solutions to businesses and residential properties across Bangladesh. With a customer-centric approach, we continue to innovate and improve, ensuring our lifts meet the evolving needs of the market.",
+};
+ML.brandElevates = {
+  intro: "ELEVATES is a brand developed in Bangladesh keeping in mind to make it “budget friendly”. The brand’s trademark is registered in Bangladesh. We have invested our four decades of industry experience, sourced out the best suitable components, supply chain, options and split the sourcing in to two parts as:",
+  imported: ["Traction Machine", "Deflection pulley", "Complete Control Panel", "Complete Cabin", "Door Operator", "Door Header", "Door Panel", "Door Sill", "Safety Gear", "Speed Governor", "Guide rail", "Traction Steel Rope", "Rope Thimble", "Hydraulic Buffer", "Traveling Cable", "Car Operation Panel", "Landing Operation Panel", "Intercom", "Safety Switches", "Car Top Inspection Panel"],
+  local: ["Traction machine base", "Counter weight frame", "Counter weight block", "Guide bracket", "Limit bar", "Governor steel rope", "Anchor, nuts & bolts", "Door sill cover", "ARD (Optional)", "AVR (Optional)"],
+  why: [
+    ["The brand is registered in our name", "We are more careful to maintain the quality and performance to protect our long earn reputation."],
+    ["Customization", "We provide tailored lift solutions to meet diverse architectural and operational requirements."],
+    ["Affordability", "Our cost-effective sourcing helps reduce expenses while maintaining quality."],
+    ["Safety & Reliability", "We adhere to strict safety standards to ensure smooth and secure lift operations."],
+    ["Modern Design", "Our lifts are designed with aesthetics and functionality in mind, enhancing the value of any space."],
+  ],
+  commitment: "ELEVATES is dedicated to delivering reliable, efficient, and customized lift solutions to businesses and residential properties across Bangladesh. With a customer-centric approach, we continue to innovate and improve, ensuring our lifts meet the evolving needs of the market.",
+};
 
 ML.clients = [
   "1653733361.jpg","1653733381.jpg","1653733422.png","1653995381.png","1653995412.png","1653995606.png","1653995636.png",
@@ -230,7 +289,7 @@ ML.clients = [
 ML.news = [
   {
     slug: "message-from-ceo", title: "More than a provider of vertical transportation", cat: "Leadership", date: "2026",
-    img: "img/profile/md-emdad-news.jpg", fit: "portrait", author: "Emdad Ur Rahman", role: "Managing Director & CEO",
+    img: "img/catalogue/md-portrait.png", fit: "portrait", author: "Emdad Ur Rahman", role: "Managing Director & CEO",
     excerpt: "Our MD & CEO on bridging the gap between affordability and quality, and on delivering long-term value through service and engineering.",
   },
   {
@@ -240,7 +299,7 @@ ML.news = [
   },
   {
     slug: "cabin-design", title: "Choosing a cabin finish that lasts", cat: "Design", date: "Date to confirm",
-    img: "img/cabins/1742889680_12.jpg", author: "MATRIX Lift", role: "Design team",
+    img: "img/catalogue/mc-015.jpg", author: "MATRIX Lift", role: "Design team",
     excerpt: "Stainless, gold, wood-tone or stone: how to choose a lift interior that suits your building and stands up to daily use.",
   },
 ];

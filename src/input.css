@@ -1,11 +1,29 @@
 @import "tailwindcss";
 
+/* ---------- Brand fonts from the client profile & catalogues ---------- */
+@font-face { font-family: "TAN Nimbus"; src: url("fonts/tan-nimbus.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Perandory"; src: url("fonts/perandory-condensed.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Brookshire"; src: url("fonts/efco-brookshire.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Ramillas"; src: url("fonts/tt-ramillas-regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Ramillas"; src: url("fonts/tt-ramillas-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Ramillas"; src: url("fonts/tt-ramillas-bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Ramillas"; src: url("fonts/tt-ramillas-bold-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Ramillas"; src: url("fonts/tt-ramillas-black.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("fonts/gotham-book.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("fonts/gotham-bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Gotham"; src: url("fonts/gotham-black.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "Belleza"; src: url("fonts/belleza-regular.woff2") format("woff2"); font-display: swap; }
+
 @source "./";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Gotham", "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Ramillas", ui-serif, Georgia, serif;
+  --font-nimbus: "TAN Nimbus", "Abril Fatface", Georgia, serif;
+  --font-cond: "Perandory", "Oswald", "Arial Narrow", sans-serif;
+  --font-brook: "Brookshire", Georgia, serif;
+  --font-belleza: "Belleza", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-ink-950: #071226;
@@ -49,9 +67,34 @@
   .eyebrow-dark::before { content: ""; @apply size-1.5 rounded-full bg-brand-400; box-shadow: 0 0 0 3px rgb(52 196 126 / .25); }
 
   /* Headings */
-  .h-display { @apply font-display font-semibold tracking-[-0.035em] text-ink-900; }
-  .h-section { @apply font-display text-[2rem] font-semibold leading-[1.05] tracking-[-0.03em] text-ink-900 sm:text-[2.6rem] lg:text-[3.1rem]; }
-  .h-section-dark { @apply font-display text-[2rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-[2.6rem] lg:text-[3.1rem]; }
+  .h-display { @apply font-display font-bold tracking-[-0.02em] text-ink-900; }
+  .h-section { @apply font-display text-[1.9rem] font-bold leading-[1.1] tracking-[-0.02em] text-ink-900 sm:text-[2.4rem] lg:text-[2.8rem]; }
+  .h-section-dark { @apply font-display text-[1.9rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.4rem] lg:text-[2.8rem]; }
+
+  /* Brand stacked heading — big word (TAN Nimbus) + condensed caption (Perandory), as in the company profile */
+  .stack { @apply inline-flex flex-col leading-none text-ink-950; }
+  .stack-big { font-family: var(--font-nimbus); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5.6rem); max-width: 100%; overflow-wrap: anywhere; line-height: .86; letter-spacing: -0.01em; }
+  .stack-cap { font-family: var(--font-cond); font-weight: 400; font-size: clamp(1.6rem, 3.1vw, 2.5rem); line-height: .9; letter-spacing: .005em; text-transform: uppercase; align-self: flex-end; margin-top: .22em; position: relative; z-index: 1; }
+  .stack.center { @apply items-center text-center; }
+  /* only for headings whose letters hang below the line (g, y, p…) or that wrap to two lines */
+  .stack.desc .stack-cap { margin-top: .7em; }
+  .stack.loose .stack-big { line-height: 1.14; }
+  .stack.loose .stack-cap { margin-top: .5em; }
+  .stack.center .stack-cap { align-self: center; }
+  .stack.left .stack-cap { align-self: flex-end; }
+  .stack.light { @apply text-white; }
+
+  /* Series lockup — The “Prime” / SERIES / rule / tagline (Ramillas) */
+  .series { @apply inline-flex flex-col items-center text-ink-950; }
+  .series-name { font-family: var(--font-nimbus); font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1; }
+  .series-cap { font-family: var(--font-cond); font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: .8; align-self: flex-end; margin-right: .2em; margin-top: -.12em; }
+  .series-rule { @apply relative my-2 h-[2px] w-full bg-current; }
+  .series-rule::before, .series-rule::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; background: currentColor; transform: translateY(-50%) rotate(45deg); }
+  .series-rule::before { left: -3px; } .series-rule::after { right: -3px; }
+  .series-tag { font-family: var(--font-serif); text-align: center; line-height: 1.15; }
+  .series-tag b { font-weight: 700; font-style: normal; display: block; font-size: 1.12em; }
+  .series-tag i { font-style: italic; font-weight: 400; display: block; }
+  .series.light { @apply text-white; }
   .lead { @apply text-[17px] leading-[1.75] text-ink-500 sm:text-[18px]; }
 
   /* Buttons */
@@ -73,6 +116,14 @@
   .prose-lift p { @apply mb-5 leading-[1.8] text-ink-600; }
   .prose-lift h2 { @apply mt-12 mb-4 font-display text-[1.7rem] font-semibold tracking-tight text-ink-900; }
   .prose-lift ul { @apply mb-5 list-disc space-y-2 pl-5 text-ink-500 marker:text-brand-500; }
+  .prose-art > p:first-child { @apply mb-8 border-l-4 border-brand-500 pl-6 font-display text-[1.45rem] font-semibold leading-[1.5] tracking-tight text-ink-900; }
+  .prose-art h2 { @apply mt-14 flex scroll-mt-32 items-center gap-4 text-[1.85rem] font-bold; }
+  .prose-art h2 span { @apply grid size-11 shrink-0 place-items-center rounded-2xl bg-mint font-mono text-[13px] font-medium text-brand-700; }
+  .prose-art ul { @apply my-6 grid list-none gap-3 pl-0 sm:grid-cols-2; }
+  .prose-art li { @apply relative rounded-2xl bg-white py-4 pl-12 pr-5 text-[15.5px] leading-[1.55] text-ink-700 ring-1 ring-ink-900/7; }
+  .prose-art li::before { content: ""; @apply absolute left-4 top-[1.1rem] size-5 bg-brand-500; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm-1.5 15.6-4.6-4.6 1.4-1.4 3.2 3.2 6.6-6.6 1.4 1.4-8 8Z'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .prose-art figure { @apply my-10 overflow-hidden rounded-[26px] bg-white p-3 shadow-[0_30px_60px_-40px_rgba(12,27,51,.5)] ring-1 ring-ink-900/7; }
+  .prose-art figure img { @apply mx-auto max-h-[560px] w-auto max-w-full rounded-[20px] object-contain; }
 }
 
 /* ---------- Base ---------- */
@@ -85,7 +136,7 @@ details > summary::-webkit-details-marker { display: none; }
 
 /* Serif italic accent inside headings */
 .h-section em, .h-section-dark em, h1 em, h2 em, .accent {
-  font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--color-brand-600);
+  font-family: var(--font-serif); font-style: italic; font-weight: 700; letter-spacing: 0; color: var(--color-brand-600);
 }
 .h-section-dark em, .on-dark em { color: var(--color-brand-300); }
 
@@ -197,6 +248,12 @@ details > summary::-webkit-details-marker { display: none; }
 .timeline-fill { transform-origin: top; transform: scaleY(0); transition: transform 2.4s var(--ease-lift); }
 .in .timeline-fill { transform: scaleY(1); }
 
+/* Values as lift floors (about page) */
+.vrow.is-on { background: var(--color-mint); }
+.vrow.is-on .vrow-bar { transform: scaleY(1); }
+.vrow.is-on .vrow-num { color: var(--color-brand-600); -webkit-text-stroke: 0; }
+.vrow.is-on .vrow-ic { background: var(--color-brand-600); color: #fff; }
+
 /* Lift control panel (values) */
 .cop-btn { transition: all .35s var(--ease-lift); box-shadow: inset 0 -2px 0 rgb(12 27 51 / .12), 0 2px 6px -2px rgb(12 27 51 / .3); }
 .cop-btn[aria-pressed="true"] { background: var(--color-ink-900); color: #fff; box-shadow: 0 0 0 3px var(--color-brand-300), 0 0 22px rgb(52 196 126 / .55); }
@@ -215,4 +272,13 @@ details > summary::-webkit-details-marker { display: none; }
   [data-reveal] { opacity: 1; transform: none; clip-path: none; }
   .word-rise > span > span, .fade-up { transform: none; opacity: 1; }
   .vscroll, .marquee-track { animation: none !important; }
+}
+
+/* ---------- Mobile: centre brand-word headings and their intro block ---------- */
+@media (max-width: 1023.98px) {
+  .stack { display: flex !important; width: fit-content; margin-inline: auto; }
+  :has(> .stack) > :is(p, nav, .eyebrow), .grid:has(> * > .stack) > * > p, .grid:has(> * > .stack) > p { text-align: center; margin-inline: auto; }
+  :has(> .stack) > .eyebrow { display: flex; width: fit-content; }
+  :has(> .stack) > :is(.flex, nav), .grid:has(> * > .stack) > * > .flex { justify-content: center; }
+  :has(> .stack) > a.btn, .grid:has(> * > .stack) > * > a.btn { display: flex; width: fit-content; margin-inline: auto; }
 }

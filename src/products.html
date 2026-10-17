@@ -7,14 +7,14 @@
   <meta name="description" content="Browse 16 MATRIX products: passenger, home, panoramic, hospital bed, cargo and car lifts, lifting platforms, 2 & 4 post car parks, scissor platforms and lifts, escalators, moving walks, construction hoists and lifts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="./output.css" rel="stylesheet">
 </head>
 <body data-page="products">
   <div id="header-slot"></div>
   <main>
     <div id="hero"></div>
-    <section class="relative overflow-hidden bg-paper py-16 lg:py-24">
+    <section class="relative overflow-hidden bg-paper py-10 lg:py-20">
       <div class="bg-cables absolute inset-0 mask-fade-y opacity-60"></div>
       <div class="container-x relative">
         <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center" data-reveal>
@@ -33,7 +33,7 @@
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script>
-    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Products", title: "Sixteen ways to move <em>people</em> and goods.", text: "Lifts, car parks, platforms, escalators, moving walks and construction hoists — specified to your building and backed by MATRIX service.", crumbs: [{ label: "Products" }], img: "img/escalator-1600.jpg" });
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Products", big: "Product", cap: "Range", title: "", text: "Passenger Lift, Home Lift, Panoramic Lift, Hospital Bed Lift, Cargo Lift, Car Lift, 2 & 4 Post Car Park, Cargo & Car Lifting Platform, Scissor Platform, Scissor Lift, Escalator, Moving Walk, Construction Hoist and Construction Lift.", crumbs: [{ label: "Products" }], img: "img/catalogue/cover-cabin-woman.jpg" });
     const cats = ["All", ...new Set(ML.products.map((p) => p.cat))];
     const grid = document.getElementById("grid");
     document.getElementById("filters").innerHTML = cats.map((c, i) => `<button type="button" class="filter-btn rounded-full bg-white px-4 py-2 text-[14px] font-semibold text-ink-700 ring-1 ring-ink-900/10 transition hover:ring-ink-900/40" aria-pressed="${i === 0}" data-c="${c}">${c}</button>`).join("");
