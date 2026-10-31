@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career — MATRIX Lift</title>
+  <meta name="description" content="Build your career in vertical transportation with MATRIX Lift — open roles in sales, engineering, installation and maintenance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body data-page="about">
+  <div id="header-slot"></div>
+  <main>
+    <div id="hero"></div>
+
+    <!-- ============ Why work with us ============ -->
+    <section class="relative overflow-hidden bg-white py-14 lg:py-24">
+      <div class="bg-diagonal absolute inset-y-0 right-0 w-1/3 mask-fade-y opacity-60"></div>
+      <div class="container-x relative">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
+          <div class="lg:col-span-7"><h2 class="stack left"><span class="stack-big">Why</span><span class="stack-cap">MATRIX</span></h2></div>
+          <p class="lead lg:col-span-5">A family owned and managed company where you learn from about 4 decades of industry experience — and grow with a team that keeps Bangladesh moving.</p>
+        </div>
+        <div id="perks" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============ Open positions ============ -->
+    <section id="openings" class="relative overflow-hidden bg-mint py-14 lg:py-24">
+      <div class="bg-dots absolute inset-0 mask-radial opacity-60"></div>
+      <div class="container-x relative">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
+          <div class="lg:col-span-7"><h2 class="stack left"><span class="stack-big">Open</span><span class="stack-cap">Positions</span></h2></div>
+          <div class="lg:col-span-5">
+            <p class="lead">Pick a team below. Don't see your role? Send us your CV anyway — we keep it on file.</p>
+            <div id="job-filter" class="mt-6 flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+        <div id="jobs" class="mt-12 grid gap-4" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============ Hiring process ============ -->
+    <section class="relative overflow-hidden bg-paper py-14 lg:py-24">
+      <div class="bg-blueprint absolute inset-0 mask-radial opacity-60"></div>
+      <div class="container-x relative">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end" data-reveal>
+          <div class="lg:col-span-7"><h2 class="stack left"><span class="stack-big">Hiring</span><span class="stack-cap">Process</span></h2></div>
+          <p class="lead lg:col-span-5">Four floors from application to your first day.</p>
+        </div>
+        <ol id="steps" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-stagger></ol>
+      </div>
+    </section>
+
+    <!-- ============ Apply ============ -->
+    <section id="apply" class="relative scroll-mt-24 overflow-hidden bg-white py-14 lg:py-24">
+      <div class="container-x relative grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-5" data-reveal>
+          <h2 class="stack left"><span class="stack-big">Apply</span><span class="stack-cap">Now</span></h2>
+          <p class="lead mt-6">Fill in the form and attach your CV. Our HR team reviews every application and contacts shortlisted candidates.</p>
+          <div class="mt-8 space-y-3" id="apply-contact"></div>
+        </div>
+        <div class="lg:col-span-7" data-reveal>
+          <form class="js-career grid gap-5 rounded-[28px] bg-paper p-6 ring-1 ring-ink-900/7 sm:grid-cols-2 sm:p-8" novalidate>
+            <div class="fld"><label class="label" for="c-name">Full name *</label><input id="c-name" name="name" class="field" required autocomplete="name"><p class="err mt-1 hidden text-xs text-red-500">Please enter your name.</p></div>
+            <div class="fld"><label class="label" for="c-phone">Phone *</label><input id="c-phone" name="phone" type="tel" class="field" required autocomplete="tel" placeholder="+880"><p class="err mt-1 hidden text-xs text-red-500">Enter a valid phone number.</p></div>
+            <div class="fld"><label class="label" for="c-email">Email *</label><input id="c-email" name="email" type="email" class="field" required autocomplete="email"><p class="err mt-1 hidden text-xs text-red-500">Enter a valid email address.</p></div>
+            <div class="fld"><label class="label" for="c-role">Position *</label><select id="c-role" name="role" class="field" required></select><p class="err mt-1 hidden text-xs text-red-500">Please choose a position.</p></div>
+            <div class="fld"><label class="label" for="c-exp">Experience</label><select id="c-exp" name="exp" class="field"><option>Fresher</option><option>1–2 years</option><option>3–5 years</option><option>5+ years</option></select></div>
+            <div class="fld"><label class="label" for="c-cv">CV (PDF / DOC) *</label><input id="c-cv" name="cv" type="file" accept=".pdf,.doc,.docx" class="field file:mr-3 file:rounded-full file:border-0 file:bg-ink-900 file:px-3 file:py-1 file:text-xs file:font-semibold file:text-white" required><p class="err mt-1 hidden text-xs text-red-500">Please attach your CV.</p></div>
+            <div class="fld sm:col-span-2"><label class="label" for="c-msg">Cover note</label><textarea id="c-msg" name="message" rows="4" class="field" placeholder="Tell us briefly about yourself"></textarea></div>
+            <div class="sm:col-span-2"><button type="submit" class="btn btn-primary w-full sm:w-auto">Submit application</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script>
+    const { icon, contact } = ML;
+
+    document.getElementById("hero").innerHTML = R.pageHero({
+      eyebrow: "Career", big: "Career", cap: "at MATRIX", title: "",
+      text: "Join a team that plans, supplies, installs and maintains lifts across Bangladesh — 24/7, 365 days a year.",
+      crumbs: [{ label: "Career" }],
+      side: `<div class="flex items-center justify-between"><p class="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-300">We're hiring</p><span class="led rounded-lg bg-ink-950 px-2.5 py-1 font-mono text-xs">▲ FLR 01</span></div>
+        <div class="mt-6 grid grid-cols-2 gap-3">${[["40+", "Years industry experience"], ["4", "Teams hiring"], ["24/7", "After-sales service"], ["1,000+", "Lifts handled"]].map(([n, l]) => `<div class="rounded-2xl bg-white/[.06] p-4 ring-1 ring-white/10"><p class="font-display text-[1.7rem] font-bold leading-none">${n}</p><p class="mt-2 text-[12.5px] leading-snug text-white/60">${l}</p></div>`).join("")}</div>
+        <a href="#openings" class="btn btn-primary mt-6 w-full justify-center">See open positions</a>`,
+    });
+
+    const perks = [
+      ["excellence", "Learn from the best", "Work alongside leadership with about 4 decades in the lift industry, at home and abroad."],
+      ["shield", "Safety first", "Safety is our highest priority and may never be compromised — on site and in the office."],
+      ["grad", "Training & growth", "Hands-on training on installation, QC and maintenance with qualified engineers and technicians."],
+      ["briefcase", "Stable & growing", "A family owned company growing with Bangladesh's infrastructure development."],
+    ];
+    R.fill("perks", perks.map(([ic, t, d]) => `
+      <article class="rounded-[24px] bg-paper p-6 ring-1 ring-ink-900/6 transition duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_50px_-30px_rgba(12,27,51,.45)]" data-reveal>
+        <span class="grid size-12 place-items-center rounded-2xl bg-white text-brand-600 ring-1 ring-ink-900/6">${icon(ic, "size-[22px]")}</span>
+        <h3 class="mt-5 font-display text-[1.25rem] font-bold tracking-tight">${t}</h3>
+        <p class="mt-2 text-[14.5px] leading-[1.65] text-ink-500">${d}</p>
+      </article>`));
+
+    // Sample openings — replace with client-approved roles before launch
+    const jobs = [
+      { title: "Sales Executive", team: "Sales & Marketing", type: "Full-time", place: "Dhaka (DOHS Mirpur)", exp: "1–3 years", text: "Meet developers and building owners, size the right lift for each project and follow through to handover." },
+      { title: "Site Engineer (Installation)", team: "Engineering", type: "Full-time", place: "Dhaka & project sites", exp: "2–5 years", text: "Lead installation crews, run QC during installation and hand over lifts that meet industry norms." },
+      { title: "Lift Technician", team: "Maintenance", type: "Full-time", place: "Dhaka & project sites", exp: "1+ years", text: "Keep lifts running 24/7 — preventive maintenance, fault finding and emergency call-outs." },
+      { title: "Electrical / Controller Technician", team: "Maintenance", type: "Full-time", place: "Dhaka", exp: "2+ years", text: "Diagnose and repair controllers, drives and wiring; support modernization projects." },
+      { title: "Admin & Accounts Officer", team: "Administration", type: "Full-time", place: "Dhaka (DOHS Mirpur)", exp: "1–3 years", text: "Support inventory control, documentation and accounts for supply and after-sales operations." },
+    ];
+    const teams = ["All", ...new Set(jobs.map((j) => j.team))];
+    document.getElementById("job-filter").innerHTML = teams.map((t, i) => `<button type="button" class="filter-btn rounded-full bg-white px-4 py-2 text-[14px] font-semibold text-ink-700 ring-1 ring-ink-900/10 transition hover:ring-ink-900/40" aria-pressed="${i === 0}" data-t="${t}">${t}</button>`).join("");
+    const chip = (ic, t) => `<span class="inline-flex items-center gap-1.5 rounded-full bg-paper px-3 py-1 text-[12.5px] font-medium text-ink-600 ring-1 ring-ink-900/6">${icon(ic, "size-3.5 text-brand-600")}${t}</span>`;
+    const drawJobs = (t) => {
+      R.fill("jobs", jobs.filter((j) => t === "All" || j.team === t).map((j, i) => `
+        <article class="group grid gap-5 rounded-[26px] bg-white p-6 ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-30px_rgba(12,27,51,.45)] sm:p-7 lg:grid-cols-12 lg:items-center" data-reveal>
+          <div class="flex items-start gap-4 lg:col-span-8">
+            <span class="led shrink-0 rounded-lg bg-ink-900 px-2.5 py-1 font-mono text-xs">0${i + 1}</span>
+            <div>
+              <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-brand-600">${j.team}</p>
+              <h3 class="mt-1 font-display text-[1.35rem] font-bold tracking-tight text-ink-900">${j.title}</h3>
+              <p class="mt-2 max-w-2xl text-[14.5px] leading-[1.65] text-ink-500">${j.text}</p>
+              <div class="mt-4 flex flex-wrap gap-2">${chip("clock", j.type)}${chip("pin", j.place)}${chip("briefcase", j.exp)}</div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 lg:text-right">
+            <a href="#apply" data-role="${j.title}" class="btn btn-dark w-full justify-center sm:w-auto">Apply now ${icon("arrow", "size-4 transition group-hover:translate-x-1")}</a>
+          </div>
+        </article>`));
+      ML.watch?.(document.getElementById("jobs"));
+    };
+    drawJobs("All");
+    document.getElementById("job-filter").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      document.querySelectorAll("#job-filter button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      drawJobs(b.dataset.t);
+    });
+
+    const roleSel = document.getElementById("c-role");
+    roleSel.innerHTML = `<option value="">Choose a position</option>${jobs.map((j) => `<option>${j.title}</option>`).join("")}<option>General application</option>`;
+    document.getElementById("jobs").addEventListener("click", (e) => {
+      const a = e.target.closest("[data-role]"); if (a) roleSel.value = a.dataset.role;
+    });
+
+    const steps = [
+      ["mail", "Apply", "Send your application and CV through the form below."],
+      ["check", "Shortlist", "HR reviews every application and contacts shortlisted candidates."],
+      ["briefcase", "Interview", "Meet the team lead — technical roles include a practical assessment."],
+      ["excellence", "Welcome aboard", "Offer, onboarding and hands-on training with our engineers."],
+    ];
+    R.fill("steps", steps.map(([ic, t, d], i) => `
+      <li class="relative rounded-[24px] bg-white p-6 ring-1 ring-ink-900/7" data-reveal>
+        <div class="flex items-center justify-between"><span class="grid size-12 place-items-center rounded-2xl bg-brand-500 text-white">${icon(ic, "size-[22px]")}</span><span class="led rounded-lg bg-ink-900 px-2.5 py-1 font-mono text-xs">▲ 0${i + 1}</span></div>
+        <h3 class="mt-5 font-display text-[1.25rem] font-bold tracking-tight">${t}</h3>
+        <p class="mt-2 text-[14.5px] leading-[1.65] text-ink-500">${d}</p>
+      </li>`));
+
+    const row = (ic, label, val, href) => `<a href="${href}" class="flex items-center gap-4 rounded-2xl bg-paper p-4 ring-1 ring-ink-900/6 transition hover:bg-mint"><span class="grid size-11 shrink-0 place-items-center rounded-xl bg-white text-brand-600 ring-1 ring-ink-900/6">${icon(ic, "size-5")}</span><span><span class="block font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-400">${label}</span><span class="block text-[15px] font-semibold text-ink-900">${val}</span></span></a>`;
+    document.getElementById("apply-contact").innerHTML = row("mail", "Email your CV", contact.email, `mailto:${contact.email}?subject=Job%20application`) + row("phone", "HR / Office", contact.phone, contact.phoneHref) + row("pin", "Office", contact.addressShort || "DOHS Mirpur, Dhaka", "contact.html");
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -73,7 +73,7 @@ window.R = (() => {
       </a>`,
 
     // Light inner-page hero with blueprint grid and optional framed image
-    pageHero: ({ eyebrow, title, text, crumbs = [], img, big, cap, side }) => `
+    pageHero: ({ eyebrow, title, text, crumbs = [], img, big, cap, side, titleImg, small }) => `
       <section class="relative overflow-hidden border-b border-ink-900/6 bg-paper">
         <div class="bg-blueprint absolute inset-0 mask-radial"></div>
         <div class="blob -left-24 top-10 size-80 bg-brand-200/50"></div>
@@ -84,7 +84,7 @@ window.R = (() => {
               <a href="index.html" class="hover:text-ink-900">Home</a>${crumbs.map((c) => ` <span class="text-ink-300">/</span> ${c.href ? `<a href="${c.href}" class="hover:text-ink-900">${c.label}</a>` : `<span class="text-brand-600">${c.label}</span>`}`).join("")}
             </nav>
             <p class="eyebrow fade-up mt-7" style="--d:.25s">${eyebrow}</p>
-            ${big ? `<h1 class="stack ${/[gjpqy]/.test(big) ? "desc" : ""} fade-up mt-10 !flex w-fit sm:mt-12" style="--d:.35s"><span class="stack-big"${big.length > 8 ? ` style="font-size:clamp(2.2rem,4.2vw,3.9rem);overflow-wrap:normal"` : ""}>${big}</span><span class="stack-cap">${cap || ""}</span></h1>${title ? `<p class="fade-up mt-5 font-display text-[1.35rem] font-bold leading-snug tracking-tight text-ink-800 sm:text-[1.6rem]" style="--d:.45s">${title}</p>` : ""}` : `<h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.02] sm:text-[3.4rem] lg:text-[4.1rem]" style="--d:.35s">${title}</h1>`}
+            ${small ? `<h1 class="sr-only">${small}</h1>${titleImg ? `<img src="${titleImg}" alt="${title || ""}" class="fade-up mx-auto mt-8 block h-auto w-full max-w-[420px] sm:max-w-[500px] lg:mx-0" width="909" height="339" style="--d:.45s">` : ""}` : big ? `<h1 class="stack ${/[gjpqy]/.test(big) ? "desc" : ""} fade-up mt-10 !flex w-fit sm:mt-12" style="--d:.35s"><span class="stack-big"${big.length > 8 ? ` style="font-size:clamp(2.2rem,4.2vw,3.9rem);overflow-wrap:normal"` : ""}>${big}</span><span class="stack-cap">${cap || ""}</span></h1>${titleImg ? `<img src="${titleImg}" alt="${title || ""}" class="fade-up mx-auto mt-7 block h-auto w-full max-w-[420px] sm:max-w-[480px] lg:mx-0" width="909" height="339" style="--d:.45s">` : title ? `<p class="fade-up mt-5 font-display text-[1.35rem] font-bold leading-snug tracking-tight text-ink-800 sm:text-[1.6rem]" style="--d:.45s">${title}</p>` : ""}` : `<h1 class="h-display fade-up mt-5 text-[2.5rem] leading-[1.02] sm:text-[3.4rem] lg:text-[4.1rem]" style="--d:.35s">${title}</h1>`}
             ${text ? `<p class="lead fade-up mt-6 max-w-2xl" style="--d:.5s">${text}</p>` : ""}
           </div>
           ${img ? `

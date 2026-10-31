@@ -282,3 +282,10 @@ details > summary::-webkit-details-marker { display: none; }
   :has(> .stack) > :is(.flex, nav), .grid:has(> * > .stack) > * > .flex { justify-content: center; }
   :has(> .stack) > a.btn, .grid:has(> * > .stack) > * > a.btn { display: flex; width: fit-content; margin-inline: auto; }
 }
+
+/* CEO message body — comfortable reading on phones */
+@media (max-width: 639.98px) {
+  .ceo-body { font-size: 15.5px; }
+  .ceo-body p { margin-bottom: 1rem; line-height: 1.7; }
+  .ceo-body > p:first-child { font-size: 1.08rem !important; line-height: 1.6 !important; }
+}

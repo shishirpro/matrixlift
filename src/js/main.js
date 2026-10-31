@@ -11,7 +11,8 @@
         { label: "About Us", href: "about.html", desc: "Who we are and what we stand for" },
         { label: "Background of MATRIX", href: "background.html", desc: "Four decades of leadership" },
         { label: "Message from CEO", href: "ceo-message.html", desc: "Our direction, in his words" },
-        { label: "Our Management", href: "management.html", desc: "Board & functional team" },
+        { label: "Our Management", href: "management.html", desc: "Board of directors" },
+        { label: "Career", href: "career.html", desc: "Open positions & how to apply" },
       ],
     },
     { label: "Brands", href: "brands.html", key: "brands" },
@@ -140,7 +141,7 @@
           <li><a class="hover:text-ink-900" href="management.html">Management</a></li>
           <li><a class="hover:text-ink-900" href="brands.html">Our Brands</a></li>
           <li><a class="hover:text-ink-900" href="news.html">News</a></li>
-          <li><a class="hover:text-ink-900" href="management.html">Functional Team</a></li>
+          <li><a class="hover:text-ink-900" href="career.html">Career</a></li>
           <li><a class="hover:text-ink-900" href="about.html#beelia">BEELIA Membership</a></li>
         </ul>
       </div>
@@ -324,7 +325,7 @@
       msg.textContent = ok ? "Thanks — you’re on the list. (Demo: connect email provider before launch.)" : "Please enter a valid email address.";
       if (ok) f.reset();
     }
-    if (f.classList.contains("js-quote")) {
+    if (f.classList.contains("js-quote") || f.classList.contains("js-career")) {
       e.preventDefault();
       let valid = true;
       f.querySelectorAll("[required]").forEach((el) => {
@@ -342,7 +343,7 @@
       setTimeout(() => {
         f.innerHTML = `<div class="py-12 text-center">
           <div class="mx-auto grid size-16 place-items-center rounded-full bg-brand-400/15 text-brand-500 success-pop">${icon("check", "size-8")}</div>
-          <h3 class="mt-6 font-display text-2xl font-semibold text-ink-900">Enquiry received</h3>
+          <h3 class="mt-6 font-display text-2xl font-semibold text-ink-900">${f.classList.contains("js-career") ? "Application received" : "Enquiry received"}</h3>
           <p class="mx-auto mt-2 max-w-sm text-ink-500">Thank you. Our team will contact you shortly. For urgent matters call <a class="font-semibold text-ink-900 underline" href="${contact.phoneHref}">${contact.phone}</a>.</p>
         </div>`;
       }, 1100);
