@@ -33,6 +33,33 @@
       </div>
     </section>
 
+    <!-- Promo: poster + film -->
+    <section id="svc-promo" class="relative overflow-hidden bg-ink-950 py-14 text-white lg:py-24">
+      <div class="absolute inset-0 opacity-[.06]" style="background-image:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 120px)"></div>
+      <div class="blob -right-40 top-0 size-[460px] bg-brand-600/25"></div>
+      <div class="container-x relative grid items-center gap-10 lg:grid-cols-12">
+        <div class="text-center lg:col-span-4 lg:text-left" data-reveal>
+          <p class="eyebrow-dark mx-auto lg:mx-0">From production to maintenance</p>
+          <h2 class="mt-5 font-display text-[2rem] font-bold leading-[1.15] tracking-tight sm:text-[2.4rem]">Your trusted partner in <em class="text-brand-300">lift solutions.</em></h2>
+          <p class="mt-4 text-[16px] leading-[1.75] text-white/70">Pre-engineering, production, quality testing, safe delivery, installation and maintenance — one team, start to finish.</p>
+          <div class="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
+            <a href="contact.html#quote" class="btn btn-primary">Contact us</a>
+            <a href="tel:+8801713018796" class="btn border border-white/20 text-white hover:bg-white/10">01713-018796</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:col-span-8" data-reveal>
+          <figure class="overflow-hidden rounded-[26px] bg-white/5 ring-1 ring-white/10 shadow-[0_40px_80px_-40px_rgba(0,0,0,.8)]">
+            <button type="button" class="block w-full" onclick="ML.lightbox([{ src: 'img/catalogue/precision-engineering-bn.jpg', caption: 'MATRIX Engineering Services' }])" aria-label="View poster">
+              <img src="img/catalogue/precision-engineering-bn.jpg" alt="নির্ভরতার যাত্রা শুরু হয় নিখুঁত প্রকৌশল দিয়ে — MATRIX Engineering Services" class="aspect-[9/16] w-full object-cover" loading="lazy">
+            </button>
+          </figure>
+          <figure class="relative overflow-hidden rounded-[26px] bg-ink-900 ring-1 ring-white/10 shadow-[0_40px_80px_-40px_rgba(0,0,0,.8)]">
+            <video class="aspect-[9/16] w-full object-cover" src="media/engineering-services-film.mp4" poster="media/engineering-services-film.jpg" preload="none" playsinline controls></video>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- Detail -->
     <section class="relative overflow-hidden bg-mint py-14 lg:py-24">
       <div class="bg-dots absolute inset-0 mask-radial opacity-70"></div>
@@ -70,7 +97,7 @@
 
     const detail = {
       planning: { deliver: ["Traffic calculation", "Mode, number, capacity & speed of equipment", "Shaft layout & brand recommendation"] },
-      supply: { deliver: ["Equipment from VOLKSLIFT, MATRIX LIFT or ELEVATES", "Faster, on-time delivery", "Inventory control after delivery"] },
+      supply: { deliver: ["Equipment from MATRIX LIFT or ELEVATES", "Faster, on-time delivery", "Inventory control after delivery"] },
       installation: { deliver: ["Installation as per industry norms", "Quality control by qualified engineers & technicians", "Testing & handover"] },
       maintenance: { deliver: ["24/7 service, 365 days a year", "Dedicated, skilled maintenance team", "Preventive visits & breakdown support"] },
       "spare-parts": { deliver: ["Spare parts for all equipment we supply", "Widely used core components", "Replacement & fitting"] },

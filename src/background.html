@@ -55,12 +55,12 @@
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script>
-    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Background of MATRIX", big: "Background", cap: "of MATRIX", title: "About 4 decades of experience in the Lift Industry", text: "Our Founder Managing Director & CEO brings with him about 4 decades of experience in the Lift Industry in home and abroad.", crumbs: [{ label: "About", href: "about.html" }, { label: "Background" }], img: "img/catalogue/volkslift-plant.png" });
+    document.getElementById("hero").innerHTML = R.pageHero({ eyebrow: "Background of MATRIX", big: "Background", cap: "of MATRIX", title: "About 4 decades of experience in the Lift Industry", text: "Our Founder Managing Director & CEO brings with him about 4 decades of experience in the Lift Industry in home and abroad.", crumbs: [{ label: "About", href: "about.html" }, { label: "Background" }], img: "img/catalogue/cover-panoramic-sq.jpg" });
     const chapters = [
       { y: "1987 – 1997", org: "Property Lifts", role: "Junior Executive → Chief Executive", text: "Built the business from concept stage, personally handling sales, installation, maintenance and after-sales support.", brands: ["Lift Munich (Germany)", "Monitot (Italy)", "Mac Puarsa (Spain)"] },
       { y: "1998 – 2004", org: "Aziz & Company Ltd.", role: "Executive Director (Operations)", text: "Oversaw company operations across a portfolio of European and Asian lift brands.", brands: ["Schindler (Switzerland)", "ELEX (Italy)", "Paravia (Italy)", "Joong Ang (Korea)"] },
       { y: "2005 – 2021", org: "Orbit Technologies Ltd.", role: "Director", text: "Ran the firm’s lift business for sixteen years.", brands: ["Fuji (China & Thailand)", "Fujihd (China)", "Glarie (China)"] },
-      { y: "2022 – Present", org: "MATRIX", role: "Managing Director & CEO", text: "Founded MATRIX as a family-owned comprehensive vertical transportation company — now with the second generation in management.", brands: ["VOLKSLIFT · Apex", "MATRIX LIFT · Prime", "ELEVATES · Value"], now: true },
+      { y: "2022 – Present", org: "MATRIX", role: "Managing Director & CEO", text: "Founded MATRIX as a family-owned comprehensive vertical transportation company — now with the second generation in management.", brands: ["MATRIX LIFT · Prime", "ELEVATES · Value"], now: true },
     ];
     document.getElementById("timeline").insertAdjacentHTML("beforeend", chapters.map((c, i) => `
       <li class="relative pb-12 pl-14 last:pb-0" data-reveal style="--d:${i * 150 + 300}ms">

@@ -9,9 +9,7 @@ window.R = (() => {
 
   return {
     values,
-    // Brand stacked heading: big word + condensed caption (company-profile style)
-    stack: (big, cap, cls = "") => `<h2 class="stack ${/[gjpqy]/.test(big) ? "desc" : ""} ${cls}"><span class="stack-big">${big}</span><span class="stack-cap">${cap}</span></h2>`,
-    // Series lockup: The “Prime” / SERIES / rule / tagline
+    // Series lockup: The “Name” / SERIES / rule / tagline (company-profile style)
     series: (name, bold, rest, cls = "") => `<div class="series ${cls}"><span class="series-name">The “${name}”</span><span class="series-cap">SERIES</span><span class="series-rule"></span><span class="series-tag"><b>${bold}</b>${rest.map((r) => `<i>${r}</i>`).join("")}</span></div>`,
     fill(id, arr) {
       const el = document.getElementById(id);
@@ -41,27 +39,10 @@ window.R = (() => {
     },
 
     // Service card on light background
-    serviceItem: (s, i) => `
-      <li class="svc-card group relative rounded-[22px] bg-white p-6 ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgba(12,27,51,.45)]" data-reveal>
-        <div class="flex items-start justify-between">
-          <span class="grid size-12 place-items-center rounded-2xl bg-mint text-brand-600 transition duration-500 group-hover:bg-ink-900 group-hover:text-brand-300">${icon(s.icon, "size-[22px]")}</span>
-          <span class="font-display text-[34px] font-semibold leading-none text-ink-900/[.07] transition group-hover:text-brand-500/30">0${i + 1}</span>
-        </div>
-        <h3 class="mt-6 font-display text-[19px] font-semibold tracking-[-0.02em] text-ink-900">${s.name}</h3>
-        <p class="mt-2 text-[14.5px] leading-[1.65] text-ink-500">${s.text}</p>
-      </li>`,
-
-    valueTile: ([n, ic, t]) => `
-      <div class="group rounded-[22px] bg-white p-6 ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-1 hover:ring-brand-400" data-reveal>
-        <span class="grid size-11 place-items-center rounded-xl bg-mint text-brand-600 transition duration-500 group-hover:bg-brand-600 group-hover:text-white">${icon(ic, "size-5")}</span>
-        <h3 class="mt-5 font-display text-[17px] font-semibold">${n}</h3>
-        <p class="mt-1.5 text-[14px] leading-relaxed text-ink-500">${t}</p>
-      </div>`,
-
     newsCard: (n) => `
       <a href="article.html?a=${n.slug}" class="group flex flex-col rounded-[26px] bg-white p-2.5 ring-1 ring-ink-900/7 transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(12,27,51,.4)]" data-reveal>
         <div class="img-zoom relative aspect-[16/10] overflow-hidden rounded-[18px] ${n.fit === "portrait" ? "bg-gradient-to-br from-mint via-sky to-sand" : "bg-mist"}">
-          ${n.fit === "portrait" ? `<div class="bg-floors absolute inset-0 opacity-50"></div><img src="${n.img}" alt="" class="relative mx-auto h-full w-auto object-contain object-bottom mix-blend-multiply" loading="lazy">` : `<img src="${n.img}" alt="" class="size-full object-cover" loading="lazy">`}
+          ${n.fit === "poster" ? `<img src="${n.img}" alt="" aria-hidden="true" class="absolute inset-0 size-full scale-110 object-cover blur-xl opacity-60"><img src="${n.img}" alt="" class="relative mx-auto h-full w-auto object-contain drop-shadow-xl" loading="lazy">` : n.fit === "portrait" ? `<div class="bg-floors absolute inset-0 opacity-50"></div><img src="${n.img}" alt="" class="relative mx-auto h-full w-auto object-contain object-bottom mix-blend-multiply" loading="lazy">` : `<img src="${n.img}" alt="" class="size-full object-cover" loading="lazy">`}
           <span class="chip absolute left-3 top-3">${n.cat}</span>
         </div>
         <div class="flex flex-1 flex-col px-3 pb-3 pt-5">

@@ -1,9 +1,6 @@
 # Dependencies — reinstall with `npm install`
 node_modules/
 
-# Original 5.5 MB escalator photo; the site uses the resized copy img/escalator-1600.jpg
-src/img/1653741197.jpg
-
 # Logs
 npm-debug.log*
 *.log

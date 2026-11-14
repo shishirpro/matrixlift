@@ -14,18 +14,11 @@ ML.contact = {
   hours: "Sat – Thu, 9:30 AM – 6:30 PM",
 };
 
-// Three-tier brand strategy
-ML.series = [
-  { key: "apex", series: "Apex", brand: "VOLKSLIFT", segment: "Top Notch", tagline: "Precision in Motion · Excellence in Elevation", logo: null, href: "brands.html#volkslift" },
-  { key: "prime", series: "Prime", brand: "MATRIX LIFT", segment: "Mid-range", tagline: "Smart, Reliable & Yours.", logo: "img/matrix-lift.png", href: "brands.html#matrix" },
-  { key: "value", series: "Value", brand: "ELEVATES", segment: "Budget", tagline: "Affordable & Trusted Performance.", logo: "img/elevate.png", href: "brands.html#elevate" },
-];
-
 ML.products = [
   {
     slug: "passenger-lift", name: "Passenger Lift", cat: "Lifts", img: "img/products/p-passenger.jpg",
     line: "Smooth, quiet vertical travel for residential and commercial buildings.",
-    overview: "Passenger lifts for apartments, offices, hotels and mixed-use buildings, available in Machine Room on Top (MR) and Machine Room Less (MRL) configurations. Offered across all three series — Apex (VOLKSLIFT), Prime (MATRIX LIFT) and Value (ELEVATES).",
+    overview: "Passenger lifts for apartments, offices, hotels and mixed-use buildings, available in Machine Room on Top (MR) and Machine Room Less (MRL) configurations. Offered in both our series — Prime (MATRIX LIFT) and Value (ELEVATES).",
     uses: ["Residential apartments", "Office buildings", "Hotels & hospitality", "Shopping complexes"],
     benefits: ["MR and MRL configurations", "450 – 1600 kg, 6 – 21 persons", "Up to 2.5 m/s, up to 40 floors", "Customised decoration options"],
     specs: true,
@@ -249,35 +242,6 @@ ML.edoors = [
   { code: "ED-04", img: "img/catalogue/ed-04.png", spec: "All Landing Door · SS Mirror Etching Finish" },
 ];
 
-// Brand catalogues — message & why choose (MATRIX Product Catalogue 2025 / ELEVATES Product Catalogue)
-ML.brandMatrix = {
-  intro: "MATRIX is a proudly Bangladesh registered trademark and a leading name in the elevator industry. Based on my 40 years industry experience and with a commitment to innovation, efficiency, and affordability, we specializes in providing high-quality lift solutions tailored to our customer’s unique needs.",
-  mission: "At MATRIX, our goal is to bridge the gap between affordability and quality. We strive to offer cost-effective lift solutions without compromising on safety, durability and modern design.",
-  manufacturing: "We have multiple choices of reputed and modern robotic production facilities in China, leveraging advanced technology and precision engineering. This allows us to maintain international standards while keeping costs competitive, ensuring our customers receive the best value of their investment.",
-  why: [
-    ["The brand is registered in our name", "We are more careful to maintain the quality and performance to protect our long earn reputation."],
-    ["Customization", "We provide tailored lift solutions to meet diverse architectural and operational requirements."],
-    ["Affordability", "Our cost-effective manufacturing process helps reduce expenses while maintaining quality."],
-    ["Safety & Reliability", "We adhere to strict safety standards to ensure smooth and secure lift operations."],
-    ["Modern Design", "Our lifts are designed with aesthetics and functionality in mind, enhancing the value of any space."],
-    ["Manufacturer & Certificate details", "We provide manufacturers details and test certificate of critical components with each lift."],
-  ],
-  commitment: "MATRIX is dedicated to delivering reliable, efficient, and customized lift solutions to businesses and residential properties across Bangladesh. With a customer-centric approach, we continue to innovate and improve, ensuring our lifts meet the evolving needs of the market.",
-};
-ML.brandElevates = {
-  intro: "ELEVATES is a brand developed in Bangladesh keeping in mind to make it “budget friendly”. The brand’s trademark is registered in Bangladesh. We have invested our four decades of industry experience, sourced out the best suitable components, supply chain, options and split the sourcing in to two parts as:",
-  imported: ["Traction Machine", "Deflection pulley", "Complete Control Panel", "Complete Cabin", "Door Operator", "Door Header", "Door Panel", "Door Sill", "Safety Gear", "Speed Governor", "Guide rail", "Traction Steel Rope", "Rope Thimble", "Hydraulic Buffer", "Traveling Cable", "Car Operation Panel", "Landing Operation Panel", "Intercom", "Safety Switches", "Car Top Inspection Panel"],
-  local: ["Traction machine base", "Counter weight frame", "Counter weight block", "Guide bracket", "Limit bar", "Governor steel rope", "Anchor, nuts & bolts", "Door sill cover", "ARD (Optional)", "AVR (Optional)"],
-  why: [
-    ["The brand is registered in our name", "We are more careful to maintain the quality and performance to protect our long earn reputation."],
-    ["Customization", "We provide tailored lift solutions to meet diverse architectural and operational requirements."],
-    ["Affordability", "Our cost-effective sourcing helps reduce expenses while maintaining quality."],
-    ["Safety & Reliability", "We adhere to strict safety standards to ensure smooth and secure lift operations."],
-    ["Modern Design", "Our lifts are designed with aesthetics and functionality in mind, enhancing the value of any space."],
-  ],
-  commitment: "ELEVATES is dedicated to delivering reliable, efficient, and customized lift solutions to businesses and residential properties across Bangladesh. With a customer-centric approach, we continue to innovate and improve, ensuring our lifts meet the evolving needs of the market.",
-};
-
 ML.clients = [
   "1653733361.jpg","1653733381.jpg","1653733422.png","1653995381.png","1653995412.png","1653995606.png","1653995636.png",
   "1653995659.jpg","1653995679.jpg","1653995731.jpg","1653995779.jpg","1653995795.jpg","1653995812.jpg","1653995940.jpg",
@@ -288,14 +252,14 @@ ML.clients = [
 
 ML.news = [
   {
+    slug: "beelia-expo-2026", title: "Meet us at BEELIA 2nd International Elevator Expo 2026", cat: "Event", date: "19–21 November 2026",
+    img: "img/catalogue/beelia-expo-2026.jpg", fit: "poster", author: "MATRIX Engineering Services", role: "Events",
+    excerpt: "Visit MATRIX at ICCB, Dhaka — Hall #3 Rajdarshan, Booth R25–26. 80+ companies, 372 stalls and 4 halls, open for all.",
+  },
+  {
     slug: "message-from-ceo", title: "More than a provider of vertical transportation", cat: "Leadership", date: "2026",
     img: "img/catalogue/md-portrait.png", fit: "portrait", author: "Emdad Ur Rahman", role: "Managing Director & CEO",
     excerpt: "Our MD & CEO on bridging the gap between affordability and quality, and on delivering long-term value through service and engineering.",
-  },
-  {
-    slug: "volkslift-factory", title: "Inside the VOLKSLIFT manufacturing campus", cat: "Brands", date: "Date to confirm",
-    img: "img/volkslift_banner.png", author: "MATRIX Lift", role: "Editorial",
-    excerpt: "A look at the 100,000 m² Huzhou campus, its 108 m test tower and the production line behind our flagship brand.",
   },
   {
     slug: "cabin-design", title: "Choosing a cabin finish that lasts", cat: "Design", date: "Date to confirm",
