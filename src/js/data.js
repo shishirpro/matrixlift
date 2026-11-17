@@ -181,7 +181,7 @@ ML.team = [
     name: "Emdad Ur Rahman", short: "Emdad Ur Rahman", role: "Managing Director & CEO", img: "img/md_shape.png",
     bio: "A Science Graduate, EMBA and Mechanical Technologist brings with him about 4 decades of experience in the Lift Industry in home and abroad. Well connected in the global elevator industry, elevator core components manufacturers and industry experts. Engaged in various Social Activities. Lead BEELIA, Bangladesh Elevator, Escalators & Lift Importers Association as President for two terms 2022-24 & 2024-26.",
     edu: ["Science Graduate", "EMBA", "Mechanical Technologist"], exp: { n: 40, unit: " yrs", label: "Lift Industry, home & abroad" }, sector: "Lifts",
-    badge: "Ex-President, BEELIA · 2022-24, 2024-26",
+    badge: ["Advisor, BEELIA · 2026‑28", "Ex-President, BEELIA · 2022‑24, 2024‑26"],
     quote: "We invite our valued Patrons and Customers to avail our services and feel the difference.",
   },
   {
